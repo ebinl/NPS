@@ -26,17 +26,21 @@ function initNavigation() {
   const mobileCloseBtn = document.getElementById('mobile-nav-close');
 
   // Multi-page active navigation synchronization
+  let cleanCurrent = 'index';
   try {
     const path = window.location.pathname.replace(/\/$/, '');
     const currentFile = path.split('/').pop() || 'index.html';
-    const cleanCurrent = currentFile.replace('.html', '');
+    cleanCurrent = currentFile.replace('.html', '');
 
-    document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
+    document.querySelectorAll('.nav-menu .nav-link, #mobile-nav-drawer .mobile-nav-link, #mobile-nav-drawer .mobile-sublink').forEach(link => {
       const href = link.getAttribute('href') || '';
       const hrefFile = href.split('#')[0].split('/').pop().replace('.html', '');
       if (hrefFile && (hrefFile === cleanCurrent || (cleanCurrent === '' && hrefFile === 'index'))) {
-        document.querySelectorAll('.nav-menu .nav-link').forEach(l => l.classList.remove('active'));
         link.classList.add('active');
+        const parentAccordion = link.closest('.mobile-nav-accordion');
+        if (parentAccordion) {
+          parentAccordion.classList.add('open');
+        }
       }
     });
   } catch (e) {
@@ -52,28 +56,89 @@ function initNavigation() {
     }
   });
 
-  // Mobile menu toggle
-  if (mobileToggleBtn && mobileDrawer) {
-    mobileToggleBtn.addEventListener('click', () => {
+  // Ensure Mobile Drawer Backdrop Overlay exists
+  let mobileOverlay = document.getElementById('mobile-nav-overlay');
+  if (!mobileOverlay) {
+    mobileOverlay = document.createElement('div');
+    mobileOverlay.id = 'mobile-nav-overlay';
+    mobileOverlay.className = 'mobile-nav-overlay';
+    document.body.appendChild(mobileOverlay);
+  }
+
+  function openMobileNav() {
+    if (mobileDrawer) {
       mobileDrawer.classList.add('active');
+      if (mobileToggleBtn) mobileToggleBtn.classList.add('active');
+      if (mobileOverlay) mobileOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
-    });
+    }
   }
 
-  if (mobileCloseBtn && mobileDrawer) {
-    mobileCloseBtn.addEventListener('click', () => {
+  function closeMobileNav() {
+    if (mobileDrawer) {
       mobileDrawer.classList.remove('active');
+      if (mobileToggleBtn) mobileToggleBtn.classList.remove('active');
+      if (mobileOverlay) mobileOverlay.classList.remove('active');
       document.body.style.overflow = '';
+    }
+  }
+
+  // Mobile menu toggle click
+  if (mobileToggleBtn) {
+    mobileToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
     });
   }
 
-  // Close mobile drawer when clicking any nav link
+  // Close on close button click
+  if (mobileCloseBtn) {
+    mobileCloseBtn.addEventListener('click', closeMobileNav);
+  }
+
+  // Close on backdrop overlay click
+  if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', closeMobileNav);
+  }
+
+  // Close on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('active')) {
+      closeMobileNav();
+    }
+  });
+
+  // Accordion toggle in mobile drawer (e.g. About Us & Programmes)
+  document.querySelectorAll('.mobile-accordion-toggle').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const parentAccordion = btn.closest('.mobile-nav-accordion');
+      if (parentAccordion) {
+        const isOpen = parentAccordion.classList.contains('open');
+        // Auto-close sibling accordions for clean accordion behavior
+        document.querySelectorAll('.mobile-nav-accordion').forEach(acc => {
+          if (acc !== parentAccordion) {
+            acc.classList.remove('open');
+          }
+        });
+        if (isOpen) {
+          parentAccordion.classList.remove('open');
+        } else {
+          parentAccordion.classList.add('open');
+        }
+      }
+    });
+  });
+
+  // Close mobile drawer when clicking any page link (skip accordion toggle buttons)
   document.querySelectorAll('#mobile-nav-drawer a').forEach(link => {
     link.addEventListener('click', () => {
-      if (mobileDrawer) {
-        mobileDrawer.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+      closeMobileNav();
     });
   });
 }

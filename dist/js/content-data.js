@@ -189,7 +189,7 @@ const NPS_CONTENT = {
       id: "wellness",
       category: "Student Well-being",
       title: "Wellness Centre",
-      image: "assets/images/amenities-02-150x150.webp",
+      image: "assets/images/campus_wellness.webp",
       desc: "A dedicated centre focusing on comprehensive physical and mental health support for every student. Staffed by a qualified nurse and a professional counsellor to provide immediate first aid, routine health checks, medical record maintenance, and confidential counselling."
     },
     {
@@ -203,14 +203,14 @@ const NPS_CONTENT = {
       id: "studios",
       category: "Arts & Culture",
       title: "Music & Dance Studios",
-      image: "assets/images/program-01.webp",
+      image: "assets/images/campus_music_studio.webp",
       desc: "Dedicated, purpose-built studios designed for focused practice and instruction in instrumental/vocal music as well as classical and contemporary dance forms, nurturing artistic expression and stage presence."
     },
     {
       id: "transport",
       category: "Safety & Commute",
       title: "Secure Transport",
-      image: "assets/images/campus_hero.webp",
+      image: "assets/images/campus_transport_gps.webp",
       desc: "A secure, comprehensive, and technologically monitored bus service covering key routes in the Hopefarm/East Bangalore area. Managed by experienced staff and equipped with essential safety features, GPS real-time tracking, and mandatory adult supervision."
     }
   ],
