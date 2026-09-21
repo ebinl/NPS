@@ -63,11 +63,11 @@
   animation: floatGentle 4s ease-in-out infinite;
 }
 
-/* Scroll reveal trigger styles */
+/* Scroll reveal trigger styles - Snappy, Hardware-accelerated & zero white-blank lag */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(16px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -76,11 +76,25 @@
   transform: translateY(0);
 }
 
+/* Instant fallback for accessibility & safety */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.no-js .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* Stagger delay helpers */
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
+.delay-100 { transition-delay: 60ms; }
+.delay-200 { transition-delay: 120ms; }
+.delay-300 { transition-delay: 180ms; }
+.delay-400 { transition-delay: 240ms; }
 
 /* Interactive Hover Lift */
 .hover-lift {

@@ -762,8 +762,15 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 
 .section-py {
-  padding-top: 5.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+}
+
+@media (max-width: 768px) {
+  .section-py {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
 }
 
 .bg-slate {
@@ -869,7 +876,7 @@ h1, h2, h3, h4, h5, h6 {
               radial-gradient(circle at 85% 85%, rgba(197, 155, 39, 0.04) 0%, transparent 45%),
               linear-gradient(180deg, #f8fafc 0%, #f1f5f9 60%, #ffffff 100%);
   overflow: hidden;
-  padding: 6rem 0;
+  padding: 3.75rem 0 2.5rem;
 }
 
 .principles-bg-orb-1 {
@@ -1315,7 +1322,7 @@ h1, h2, h3, h4, h5, h6 {
               radial-gradient(circle at 90% 80%, rgba(11, 26, 54, 0.04) 0%, transparent 50%),
               linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
   overflow: hidden;
-  padding: 6rem 0;
+  padding: 3.25rem 0 3.75rem;
 }
 
 .leadership-bg-glow-1 {
@@ -1349,15 +1356,53 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
   background: #ffffff;
   border-radius: 28px;
-  padding: 3.5rem;
+  padding: 2.75rem 3rem;
   border: 1px solid rgba(197, 155, 39, 0.22);
   box-shadow: 0 24px 60px -15px rgba(6, 17, 36, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.8);
   display: grid;
-  grid-template-columns: 390px 1fr;
-  gap: 3.75rem;
-  align-items: center;
+  grid-template-columns: 370px 1fr;
+  gap: 3rem;
+  align-items: start;
   overflow: visible;
   transition: box-shadow var(--transition-slow), border-color var(--transition-slow);
+}
+
+.executive-stats-bar {
+  margin-top: 1.25rem;
+  background: #f8fafc;
+  border: 1px solid var(--slate-200);
+  border-radius: 16px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.exec-stat-cell {
+  text-align: center;
+}
+
+.exec-stat-num {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--primary-900);
+  line-height: 1.1;
+}
+
+.exec-stat-text {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--slate-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.exec-stat-sep {
+  width: 1px;
+  height: 24px;
+  background: var(--slate-200);
 }
 
 .leadership-card-executive:hover {
