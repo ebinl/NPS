@@ -384,25 +384,25 @@ const NPS_CONTENT = {
   happenings: [
     {
       title: "NPS Hope Farm Win The Interschool Quiz Contest",
-      image: "assets/images/blog-1.webp",
+      image: "assets/images/blog-2.webp",
       date: "Academic Year 2025-26",
       tag: "Academic Achievement"
     },
     {
       title: "International Yoga Day Celebration 2025",
-      image: "assets/images/blog-2.webp",
+      image: "assets/images/blog-3.webp",
       date: "June 2025",
       tag: "Wellness & Culture"
     },
     {
       title: "Investiture Ceremony Held at NPS Hope Farm",
-      image: "assets/images/blog-3.webp",
+      image: "assets/images/blog-4.webp",
       date: "July 2025",
       tag: "Student Leadership"
     },
     {
       title: "Mr Heikki Vartia Of Finland visits NPS Hope Farm",
-      image: "assets/images/blog-4.webp",
+      image: "assets/images/blog-1.webp",
       date: "Global Exchange",
       tag: "International Delegation"
     }
