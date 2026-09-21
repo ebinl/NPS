@@ -1,0 +1,121 @@
+/* ==========================================================================
+   NPS HOPEFARM - ANIMATIONS & MICRO-INTERACTIONS
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGoldGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(197, 155, 39, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(197, 155, 39, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(197, 155, 39, 0);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Utility animation classes */
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.float-badge {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+/* Scroll reveal trigger styles */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay helpers */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Interactive Hover Lift */
+.hover-lift {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Gold border sheen on hover */
+.sheen-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen-box::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 80%
+  );
+  transform: rotate(30deg) translateY(-100%);
+  transition: transform 0.75s ease;
+  pointer-events: none;
+}
+
+.sheen-box:hover::after {
+  transform: rotate(30deg) translateY(100%);
+}
