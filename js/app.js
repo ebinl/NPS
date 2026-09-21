@@ -21,9 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initNavigation() {
   const header = document.querySelector('.main-header');
-  const mobileToggleBtn = document.getElementById('mobile-menu-toggle');
+  const mobileToggleBtn = document.getElementById('mobile-menu-toggle') || document.getElementById('mobile-toggle');
   const mobileDrawer = document.getElementById('mobile-nav-drawer');
   const mobileCloseBtn = document.getElementById('mobile-nav-close');
+
+  // Multi-page active navigation synchronization
+  try {
+    const path = window.location.pathname.replace(/\/$/, '');
+    const currentFile = path.split('/').pop() || 'index.html';
+    const cleanCurrent = currentFile.replace('.html', '');
+
+    document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
+      const href = link.getAttribute('href') || '';
+      const hrefFile = href.split('#')[0].split('/').pop().replace('.html', '');
+      if (hrefFile && (hrefFile === cleanCurrent || (cleanCurrent === '' && hrefFile === 'index'))) {
+        document.querySelectorAll('.nav-menu .nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  } catch (e) {
+    // Graceful fallback
+  }
 
   // Sticky header scroll elevation
   window.addEventListener('scroll', () => {
