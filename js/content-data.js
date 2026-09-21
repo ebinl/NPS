@@ -49,7 +49,7 @@ const NPS_CONTENT = {
     leadership: {
       chairmanName: "Dr. K. P. Gopalkrishna",
       chairmanRole: "Chairman, NPS Group of Institutions",
-      image: "assets/images/Dr.-K.-P.-Gopalkrishna-910x1024.webp",
+      image: "assets/images/chairman-dr-kp-gopalkrishna.webp",
       bio: "The success of NPS is guided by a visionary leadership team dedicated to upholding the highest standards of education. NPS Hopefarm is managed by experienced academic stalwarts from the NPS Group, bringing decades of expertise in school administration and educational strategy. Our Principal, supported by a team of highly qualified and passionately committed faculty, embodies the NPS ethos—driving pedagogical innovation, ensuring a disciplined and supportive school culture, and fostering a strong, constructive partnership between the school, parents, and students.",
       chairmanMessage: [
         "Few things have greater importance to parents than the education of their children. Every parent looks for academic excellence, good values, and discipline for their children. Choosing the right school for them is therefore a crucial decision.",
@@ -161,7 +161,7 @@ const NPS_CONTENT = {
       id: "library",
       category: "Resource Centre",
       title: "Library & Media Centre",
-      image: "assets/images/campus_library.jpg",
+      image: "assets/images/campus_library.webp",
       desc: "A serene, expansive resource centre housing a vast collection of over 5000+ titles, a dedicated reference section, and digital resources (CDs, DVDs, e-books). It serves as the main centre for research, reading, and self-study, fostering a lifelong love for literature and inquiry."
     },
     {
@@ -174,8 +174,8 @@ const NPS_CONTENT = {
     {
       id: "sports",
       category: "Athletics & Fitness",
-      title: "Sport Facilities",
-      image: "assets/images/happy-pupils-running-out-classroom-summer-vacation.webp",
+      title: "Sport & Outdoor Facilities",
+      image: "assets/images/campus_sports_play.webp",
       desc: "State-of-the-art facilities designed to promote physical literacy, teamwork, and competitive sportsmanship year-round. Features a large multipurpose playground, a full-sized Basketball Court, dedicated zones for Cricket practice and Athletics, modern Badminton Courts, and Table Tennis facilities."
     },
     {
@@ -195,8 +195,8 @@ const NPS_CONTENT = {
     {
       id: "auditorium",
       category: "Arts & Culture",
-      title: "Auditorium",
-      image: "assets/images/facilities-01-150x150.webp",
+      title: "Auditorium & AV Hall",
+      image: "assets/images/campus_auditorium.webp",
       desc: "A magnificent, acoustically-treated auditorium with seating capacity for over 500 people. Serves as the central hub for cultural events, assemblies, Annual Day, guest lectures, seminars, and large-scale school gatherings."
     },
     {

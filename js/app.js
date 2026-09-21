@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScheduleTabs();
   initScrollReveals();
   initForms();
+  initHappeningsSlider();
 });
 
 /* ==========================================================================
@@ -398,3 +399,247 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 300);
   }, 4500);
 }
+
+/* ==========================================================================
+   CAMPUS LIFE: HAPPENINGS AUTO-SLIDING CAROUSEL
+   ========================================================================== */
+function initHappeningsSlider() {
+  const viewport = document.getElementById('happenings-viewport');
+  const track = document.getElementById('happenings-track');
+  const prevBtn = document.getElementById('happenings-prev-btn');
+  const nextBtn = document.getElementById('happenings-next-btn');
+  const dotsContainer = document.getElementById('happenings-dots');
+  const progressBar = document.getElementById('happenings-progress-bar');
+  const statusPill = document.getElementById('happenings-status-pill');
+  const statusText = document.getElementById('happenings-status-text');
+
+  if (!viewport || !track) return;
+
+  const originalSlides = Array.from(track.querySelectorAll('.happening-slide'));
+  const totalSlides = originalSlides.length; // 4
+  if (totalSlides === 0) return;
+
+  // Clone slides for seamless infinite circular looping
+  originalSlides.forEach(slide => {
+    const clone = slide.cloneNode(true);
+    clone.classList.add('is-clone');
+    track.appendChild(clone);
+  });
+
+  const allSlides = Array.from(track.querySelectorAll('.happening-slide'));
+  let currentIndex = 0;
+  let isTransitioning = false;
+  let autoPlayTimer = null;
+  let progressInterval = null;
+  const slideDuration = 3800; // 3.8s per slide
+  let isPaused = false;
+
+  // Build pagination dots (one per original slide)
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = `slider-dot ${i === 0 ? 'active' : ''}`;
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.addEventListener('click', () => {
+        if (isTransitioning) return;
+        goToSlide(i);
+        restartAutoPlay();
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function getSlideStepWidth() {
+    const slide = allSlides[0];
+    if (!slide) return 0;
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.gap) || 28;
+    return slide.getBoundingClientRect().width + gap;
+  }
+
+  function updateSlidePosition(animated = true) {
+    const step = getSlideStepWidth();
+    if (!animated) {
+      track.classList.add('no-transition');
+    } else {
+      track.classList.remove('no-transition');
+    }
+    track.style.transform = `translateX(-${currentIndex * step}px)`;
+
+    // Update pagination dots according to normalized index
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.slider-dot');
+      const activeIdx = currentIndex % totalSlides;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIdx);
+      });
+    }
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    updateSlidePosition(true);
+  }
+
+  function nextSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentIndex++;
+    updateSlidePosition(true);
+  }
+
+  function prevSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    if (currentIndex <= 0) {
+      // Seamlessly jump to cloned set position without transition, then slide back
+      currentIndex = totalSlides;
+      updateSlidePosition(false);
+      track.offsetHeight; // force reflow
+      currentIndex--;
+      updateSlidePosition(true);
+    } else {
+      currentIndex--;
+      updateSlidePosition(true);
+    }
+  }
+
+  // Handle transition end for seamless circular wrap-around
+  track.addEventListener('transitionend', () => {
+    isTransitioning = false;
+    if (currentIndex >= totalSlides) {
+      // Instantly reset to base index without visual jump
+      currentIndex = currentIndex % totalSlides;
+      updateSlidePosition(false);
+    }
+  });
+
+  // Animated Progress Bar and Timer
+  function resetProgressBar() {
+    if (!progressBar) return;
+    clearInterval(progressInterval);
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    
+    if (isPaused) return;
+
+    const startTime = Date.now();
+    progressInterval = setInterval(() => {
+      if (isPaused) return;
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min((elapsed / slideDuration) * 100, 100);
+      progressBar.style.width = `${pct}%`;
+      if (elapsed >= slideDuration) {
+        clearInterval(progressInterval);
+      }
+    }, 30);
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    isPaused = false;
+    if (statusPill) statusPill.classList.remove('is-paused');
+    if (statusText) statusText.textContent = 'Auto-Playing';
+    resetProgressBar();
+    autoPlayTimer = setInterval(() => {
+      if (!isPaused) {
+        nextSlide();
+        resetProgressBar();
+      }
+    }, slideDuration);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayTimer) clearInterval(autoPlayTimer);
+    if (progressInterval) clearInterval(progressInterval);
+    autoPlayTimer = null;
+    progressInterval = null;
+  }
+
+  function pauseAutoPlay() {
+    isPaused = true;
+    if (statusPill) statusPill.classList.add('is-paused');
+    if (statusText) statusText.textContent = 'Paused';
+  }
+
+  function resumeAutoPlay() {
+    if (isPaused) {
+      isPaused = false;
+      if (statusPill) statusPill.classList.remove('is-paused');
+      if (statusText) statusText.textContent = 'Auto-Playing';
+      resetProgressBar();
+    }
+  }
+
+  function restartAutoPlay() {
+    startAutoPlay();
+  }
+
+  // Event Listeners: Navigation Buttons
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      restartAutoPlay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      restartAutoPlay();
+    });
+  }
+
+  // Hover pauses auto-play for comfortable reading
+  viewport.addEventListener('mouseenter', pauseAutoPlay);
+  viewport.addEventListener('mouseleave', resumeAutoPlay);
+
+  // Status pill click toggles auto-play pause/resume
+  if (statusPill) {
+    statusPill.addEventListener('click', () => {
+      if (isPaused) {
+        resumeAutoPlay();
+      } else {
+        pauseAutoPlay();
+      }
+    });
+  }
+
+  // Touch Swipe Support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  viewport.addEventListener('touchstart', (e) => {
+    pauseAutoPlay();
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    resumeAutoPlay();
+  }, { passive: true });
+
+  // Handle Window Resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      updateSlidePosition(false);
+    }, 150);
+  });
+
+  // Initial setup
+  updateSlidePosition(false);
+  startAutoPlay();
+}
+
