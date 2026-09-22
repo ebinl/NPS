@@ -19,12 +19,12 @@ function initAgeCalculator() {
     }
 
     const dob = new Date(dobValue);
-    // Academic Year 2026-27 Cutoff Date: June 1, 2026
-    const cutoff = new Date('2026-06-01');
+    // Academic Year 2027-28 Cutoff Date: June 1, 2027
+    const cutoff = new Date('2027-06-01');
 
     if (dob > cutoff) {
       resultGrade.textContent = "Future Batch";
-      resultText.textContent = "Child is not yet eligible for Academic Year 2026-27.";
+      resultText.textContent = "Child is not yet eligible for Academic Year 2027-2028.";
       return;
     }
 
@@ -43,43 +43,43 @@ function initAgeCalculator() {
 
     if (ageInDecimal < 3.0) {
       eligibleClass = "Toddler / Pre-Nursery";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Eligible for future preschool batch.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Eligible for future preschool batch.`;
     } else if (ageInDecimal >= 3.0 && ageInDecimal < 4.0) {
       eligibleClass = "Montessori / Pre-KG (Nursery)";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Fully eligible for the 2026-27 Foundation Stage.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Fully eligible for the 2027-28 Foundation Stage.`;
     } else if (ageInDecimal >= 4.0 && ageInDecimal < 5.0) {
       eligibleClass = "LKG (Kindergarten I)";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Eligible for Kindergarten Transition.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Eligible for Kindergarten Transition.`;
     } else if (ageInDecimal >= 5.0 && ageInDecimal < 6.0) {
       eligibleClass = "UKG (Kindergarten II)";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Eligible for UKG preparatory grade.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Eligible for UKG preparatory grade.`;
     } else if (ageInDecimal >= 6.0 && ageInDecimal < 7.0) {
       eligibleClass = "Grade I";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Meets standard NEP/CBSE criteria (minimum 6 years for Grade I).`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Meets standard NEP/CBSE criteria (minimum 6 years for Grade I).`;
     } else if (ageInDecimal >= 7.0 && ageInDecimal < 8.0) {
       eligibleClass = "Grade II";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Subject to previous academic report card.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Subject to previous academic report card.`;
     } else if (ageInDecimal >= 8.0 && ageInDecimal < 9.0) {
       eligibleClass = "Grade III";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Subject to vacancy & assessment.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Subject to vacancy & assessment.`;
     } else if (ageInDecimal >= 9.0 && ageInDecimal < 10.0) {
       eligibleClass = "Grade IV";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Assessment required for admission.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Assessment required for admission.`;
     } else if (ageInDecimal >= 10.0 && ageInDecimal < 11.0) {
       eligibleClass = "Grade V";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Subject to seat vacancy.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Subject to seat vacancy.`;
     } else if (ageInDecimal >= 11.0 && ageInDecimal < 12.0) {
       eligibleClass = "Grade VI";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Pre-CBSE foundation stage.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Pre-CBSE foundation stage.`;
     } else if (ageInDecimal >= 12.0 && ageInDecimal < 13.0) {
       eligibleClass = "Grade VII";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Middle school entry.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Middle school entry.`;
     } else if (ageInDecimal >= 13.0 && ageInDecimal < 14.5) {
       eligibleClass = "Grade VIII";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Senior entry for current session.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Senior entry for current session.`;
     } else {
       eligibleClass = "Higher Secondary Inquiries";
-      guidance = `Age as of June 1, 2026: ${years} yrs ${months} mos. Please contact school administration directly.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Please contact school administration directly.`;
     }
 
     resultGrade.textContent = eligibleClass;

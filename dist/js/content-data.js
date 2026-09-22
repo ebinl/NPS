@@ -286,7 +286,7 @@ const NPS_CONTENT = {
 
   admissions: {
     intro: "We welcome aspiring students to join the National Public School, Hopefarm family. Our admission process is designed to be fair, transparent, and aligned with the NPS Group’s standards for identifying students who will thrive in our challenging and nurturing environment.",
-    note: "Admissions are typically open for Pre-Primary (Nursery, LKG, UKG) and select grades in the Primary and Middle School sections (up to Grade VIII for Academic Session 2026-27).",
+    note: "Admissions are typically open for Pre-Primary (Nursery, LKG, UKG) and select grades in the Primary and Middle School sections (up to Grade VIII for Academic Session 2027-28).",
     criteria: "Selection is based on age-appropriate guidelines, proficiency assessments (where applicable for higher grades), and an interaction/observation session to evaluate the child’s readiness for the NPS curriculum.",
     steps: [
       {
