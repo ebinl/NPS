@@ -954,18 +954,50 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-.hero-bg-img {
+/* -----------------------------------------------------------------------
+   Hero Crossfade Slideshow
+   ----------------------------------------------------------------------- */
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.8s cubic-bezier(0.45, 0, 0.55, 1);
+  will-change: opacity;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-slide-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 38%;
-  transform: scale(1.02);
-  animation: slowZoom 24s ease-in-out infinite alternate;
+  object-position: center center;
+  animation: heroZoomA 14s ease-in-out infinite alternate;
 }
 
-@keyframes slowZoom {
-  0% { transform: scale(1.0); }
-  100% { transform: scale(1.06); }
+.hero-slide:nth-child(2) .hero-slide-img {
+  animation-name: heroZoomB;
+}
+
+@keyframes heroZoomA {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.07) translate(-1%, 0.5%); }
+}
+
+@keyframes heroZoomB {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.07) translate(1%, -0.5%); }
 }
 
 .hero-overlay {
@@ -4100,3 +4132,52 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   background: var(--accent-gold-400);
 }
+
+/* ==========================================================================
+   FLOATING WHATSAPP BUTTON
+   ========================================================================== */
+.whatsapp-floating-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-quick-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  color: #ffffff;
+  padding: 0;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+.whatsapp-quick-btn span {
+  display: none !important;
+}
+
+.whatsapp-quick-btn:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
+  background: #20ba5a;
+  color: #ffffff;
+}
+
+.whatsapp-quick-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+  display: block;
+}
+
