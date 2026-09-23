@@ -777,6 +777,53 @@ function initHappeningsSlider() {
     }, 150);
   });
 
+  // Photo Lightbox modal integration
+  const lightbox = document.getElementById('photoLightbox');
+  const lightboxOverlay = document.getElementById('photoLightboxOverlay');
+  const lightboxClose = document.getElementById('photoLightboxClose');
+  const lightboxImg = document.getElementById('photoLightboxImg');
+  const lightboxTitle = document.getElementById('photoLightboxTitle');
+  const lightboxDesc = document.getElementById('photoLightboxDesc');
+
+  function openLightbox(photoSrc, title, desc) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = photoSrc;
+    lightboxImg.alt = title || 'NPS Hopefarm Campus Life';
+    if (lightboxTitle) lightboxTitle.textContent = title || '';
+    if (lightboxDesc) lightboxDesc.textContent = desc || '';
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    pauseAutoPlay();
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    resumeAutoPlay();
+  }
+
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+
+  // Attach click listener to all photo cards (including clones)
+  track.querySelectorAll('.photo-scroll-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const src = card.getAttribute('data-photo');
+      const title = card.getAttribute('data-title');
+      const desc = card.getAttribute('data-desc');
+      if (src) openLightbox(src, title, desc);
+    });
+  });
+
   // Initial setup
   updateSlidePosition(false);
   startAutoPlay();

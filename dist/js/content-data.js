@@ -407,28 +407,106 @@ const NPS_CONTENT = {
 
   happenings: [
     {
-      title: "NPS Hope Farm Win The Interschool Quiz Contest",
-      image: "assets/images/blog-2.webp",
-      date: "Academic Year 2025-26",
-      tag: "Academic Achievement"
+      title: "Dance Studio & Performing Arts Group",
+      image: "assets/images/campus-activity-dance-1.jpg",
+      date: "Dance Studio",
+      tag: "Performing Arts"
     },
     {
-      title: "International Yoga Day Celebration 2025",
-      image: "assets/images/blog-3.webp",
-      date: "June 2025",
-      tag: "Wellness & Culture"
+      title: "Alphabet Mastery & Phonics",
+      image: "assets/images/campus-alphabet-phonics.jpg",
+      date: "Foundational Wing",
+      tag: "Early Childhood"
     },
     {
-      title: "Investiture Ceremony Held at NPS Hope Farm",
-      image: "assets/images/blog-4.webp",
-      date: "July 2025",
-      tag: "Student Leadership"
+      title: "Morning School Assembly",
+      image: "assets/images/campus-event-morning-assembly.jpg",
+      date: "School Atrium",
+      tag: "Campus Community"
     },
     {
-      title: "Mr Heikki Vartia Of Finland visits NPS Hope Farm",
-      image: "assets/images/blog-1.webp",
-      date: "Global Exchange",
-      tag: "International Delegation"
+      title: "Grand Investiture Assembly Hall",
+      image: "assets/images/campus-event-investiture-hall.jpg",
+      date: "Central Atrium",
+      tag: "Investiture Hall"
+    },
+    {
+      title: "Leadership Badge Pinning",
+      image: "assets/images/campus-event-investiture-pinning.jpg",
+      date: "Investiture Ceremony",
+      tag: "Leadership Ceremony"
+    },
+    {
+      title: "Classical Bharatanatyam on Stage",
+      image: "assets/images/campus-event-saraswati-dance.jpg",
+      date: "Main Stage",
+      tag: "Cultural Arts"
+    },
+    {
+      title: "Distinguished Dignitary Visit",
+      image: "assets/images/campus-event-vip-visit.jpg",
+      date: "Campus Reception",
+      tag: "Campus Leadership"
+    },
+    {
+      title: "Distinguished Guests Reception",
+      image: "assets/images/campus-event-vip-pink-saree.jpg",
+      date: "Campus Walkway",
+      tag: "Dignitary Visit"
+    },
+    {
+      title: "Distinguished Leadership Address",
+      image: "assets/images/campus-event-leader-podium.jpg",
+      date: "Main Stage",
+      tag: "Leadership Keynote"
+    },
+    {
+      title: "Activity-Based Classroom Learning",
+      image: "assets/images/campus-classroom-art-workshop.jpg",
+      date: "Primary Wing",
+      tag: "Creative Arts"
+    },
+    {
+      title: "Sports & Basketball in Atrium",
+      image: "assets/images/campus-sports-atrium-arena.jpg",
+      date: "Sports Atrium",
+      tag: "Sports & Fitness"
+    },
+    {
+      title: "Basketball Action & Team Play",
+      image: "assets/images/campus-sports-basketball-action.jpg",
+      date: "Sports Atrium",
+      tag: "Sports & Fitness"
+    },
+    {
+      title: "KG Alphabet Slate Learning",
+      image: "assets/images/campus-slate-phonics.jpg",
+      date: "Foundational Wing",
+      tag: "Early Childhood"
+    },
+    {
+      title: "Creative Arts & Activity Hub",
+      image: "assets/images/campus-activity-art-1.jpg",
+      date: "Activity Pods",
+      tag: "Creative Arts"
+    },
+    {
+      title: "Guided Choreography & Rhythm",
+      image: "assets/images/campus-activity-dance-2.jpg",
+      date: "Performing Arts",
+      tag: "Cultural Arts"
+    },
+    {
+      title: "Student Prayer Gathering",
+      image: "assets/images/campus-student-prayer-gathering.jpg",
+      date: "School Campus",
+      tag: "Student Values"
+    },
+    {
+      title: "Pride in NPS Tradition",
+      image: "assets/images/campus-student-handbook.jpg",
+      date: "NPS Hope Farm",
+      tag: "Student Values"
     }
   ]
 };

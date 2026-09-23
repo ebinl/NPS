@@ -2689,6 +2689,28 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-xl);
 }
 
+.beyond-card-media {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background: var(--slate-100);
+  box-shadow: 0 4px 12px rgba(11, 26, 54, 0.08);
+}
+
+.beyond-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.beyond-card:hover .beyond-card-media img {
+  transform: scale(1.05);
+}
+
 .beyond-icon-box {
   width: 54px;
   height: 54px;
@@ -3434,6 +3456,318 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(30, 58, 138, 0.88);
   color: #bae6fd;
   border: 1px solid rgba(56, 189, 248, 0.5);
+}
+
+/* ==========================================================================
+   PHOTO SCROLLING GALLERY CARDS
+   ========================================================================== */
+.photo-scroll-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 10px 30px -8px rgba(11, 26, 54, 0.08);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.35s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.photo-scroll-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px -12px rgba(11, 26, 54, 0.18);
+  border-color: rgba(197, 155, 39, 0.5);
+}
+
+.photo-card-media {
+  height: 290px;
+  position: relative;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.photo-scroll-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.photo-scroll-card:hover .photo-scroll-img {
+  transform: scale(1.08);
+}
+
+.photo-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 26, 54, 0.05) 0%, rgba(11, 26, 54, 0.25) 55%, rgba(11, 26, 54, 0.75) 100%);
+  pointer-events: none;
+}
+
+.photo-category-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  letter-spacing: 0.02em;
+}
+
+.photo-category-badge .badge-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.photo-category-badge.badge-dance {
+  background: rgba(11, 26, 54, 0.9);
+  color: #fef08a;
+  border: 1px solid rgba(234, 179, 8, 0.55);
+}
+
+.photo-category-badge.badge-culinary {
+  background: rgba(120, 53, 15, 0.9);
+  color: #fed7aa;
+  border: 1px solid rgba(249, 115, 22, 0.55);
+}
+
+.photo-category-badge.badge-art {
+  background: rgba(16, 78, 62, 0.9);
+  color: #a7f3d0;
+  border: 1px solid rgba(52, 211, 153, 0.55);
+}
+
+.photo-category-badge.badge-early {
+  background: rgba(30, 58, 138, 0.9);
+  color: #bae6fd;
+  border: 1px solid rgba(56, 189, 248, 0.55);
+}
+
+.photo-category-badge.badge-culture {
+  background: rgba(88, 28, 135, 0.9);
+  color: #e9d5ff;
+  border: 1px solid rgba(168, 85, 247, 0.55);
+}
+
+.photo-category-badge.badge-leadership {
+  background: rgba(120, 20, 20, 0.9);
+  color: #fecdd3;
+  border: 1px solid rgba(244, 63, 94, 0.55);
+}
+
+.photo-category-badge.badge-event {
+  background: rgba(15, 23, 42, 0.92);
+  color: #fde047;
+  border: 1px solid rgba(234, 179, 8, 0.65);
+}
+
+.photo-zoom-hint {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(11, 26, 54, 0.85);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.photo-zoom-hint svg {
+  width: 13px;
+  height: 13px;
+  color: var(--accent-gold-400);
+}
+
+.photo-scroll-card:hover .photo-zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-card-info {
+  padding: 1.35rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.photo-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.photo-location-tag {
+  color: var(--accent-gold-600);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.74rem;
+}
+
+.photo-pill-tag {
+  color: var(--slate-700);
+  background: var(--slate-100);
+  padding: 3px 9px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.72rem;
+}
+
+.photo-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-900);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  transition: color var(--transition-fast);
+}
+
+.photo-scroll-card:hover .photo-title {
+  color: var(--accent-gold-600);
+}
+
+.photo-desc {
+  font-size: 0.85rem;
+  color: var(--slate-600);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Lightbox Modal */
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.photo-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.photo-lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 26, 54, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.photo-lightbox-container {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  width: 100%;
+  background: var(--primary-950);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.92);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.photo-lightbox.active .photo-lightbox-container {
+  transform: scale(1);
+}
+
+.photo-lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.photo-lightbox-close:hover {
+  background: rgba(239, 68, 68, 0.9);
+  transform: scale(1.08);
+}
+
+.photo-lightbox-close svg {
+  width: 22px;
+  height: 22px;
+}
+
+.photo-lightbox-frame {
+  max-height: 70vh;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-lightbox-img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+}
+
+.photo-lightbox-caption {
+  padding: 1.25rem 1.5rem;
+  background: rgba(15, 23, 42, 0.98);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.photo-lightbox-title {
+  color: var(--white);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.photo-lightbox-desc {
+  color: var(--slate-300);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* Date / Season Chip */
@@ -4238,6 +4572,9 @@ h1, h2, h3, h4, h5, h6 {
   .happening-slide {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+  .photo-card-media {
+    height: 230px;
   }
   .happenings-header-wrapper {
     flex-direction: column;
