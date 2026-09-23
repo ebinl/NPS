@@ -9,12 +9,12 @@ const NPS_CONTENT = {
     name: "National Public School, Hope Farm",
     shortName: "NPS Hopefarm",
     tagline: "Where Education Meets Excellence",
-    affiliation: "Affiliated to Central Board of Secondary Education (CBSE), New Delhi",
+    affiliation: "Following the National Education Policy (NEP) Framework",
     campusSize: "5-Acre Sprawling Green Campus",
     legacy: "65+ Years of National Public School Group Legacy",
     ratio: "30:1 Student-Teacher Ratio",
-    gradesOffered: "Pre-KG (Montessori) up to Grade VIII (expanding to Grade XII)",
-    address: "No. 141, Channasandra Grama, Bidarahalli Hobli, Near Isha Misty Green Villas, Bengaluru – 560049",
+    gradesOffered: "Pre-KG (Nursery) up to Grade VIII (expanding to Grade XII)",
+    address: "No. 141, Channasandra , Near Isha Misty Green Apartment East gate Near Prestige Mayberry, Bengaluru – 560067",
     phones: ["+91 99000 25002", "+91 99000 31002"],
     email: "info@npshopefarm.com",
     copyright: "© Copyright 2026 National Public School, Hope Farm. All Rights Reserved."
@@ -43,7 +43,7 @@ const NPS_CONTENT = {
       },
       philosophy: {
         title: "PHILOSOPHY",
-        text: "Our core philosophy is Child-Centric Holistic Development. We believe that education extends beyond the curriculum, setting high academic standards while cultivating core values, self-reliance, and a spirit of inquiry. We strive to create a warm, nurturing environment that emphasizes personalized attention and recognizes the individuality of every learner."
+        text: "Our core philosophy is Child-Centric Holistic Development. We believe that education extends beyond the curriculum, setting high academic standards while cultivating core values, self-reliance, and a spirit of enquiry. We strive to create a warm, nurturing environment that emphasizes personalized attention and recognizes the individuality of every learner."
       }
     },
     leadership: {
@@ -58,24 +58,49 @@ const NPS_CONTENT = {
         "Our objective at NPS is to provide a happy, balanced and challenging environment where our students have the opportunity to fulfill their individual talents and goals. In parallel, we provide a wide range of cultural, sporting and co-curricular activities and a chance to exercise leadership in a sensible and respectful environment."
       ]
     },
+    chairmanSumaRanganath: {
+      name: "Ms. Suma Ranganath",
+      title: "Chairman",
+      school: "National Public School, Hope Farm",
+      photo: "assets/images/chairman-suma-ranganath.jpg",
+      lead: "At NPS Hope Farm, our vision is to create an educational ecosystem where tradition meets tomorrow — fostering intellectual curiosity, compassionate leadership, and the courage to chart new horizons.",
+      paragraphs: [
+        "As Chairman, it is my privilege to welcome you to National Public School, Hope Farm. Education today is not merely about academic accomplishment; it is about preparing young minds to thrive in an interconnected, ever-changing world with empathy, integrity, and self-belief.",
+        "Carrying forward the storied NPS legacy of over six decades of academic distinction, we have designed NPS Hope Farm as a future-forward sanctuary of learning. Here, state-of-the-art infrastructure and progressive NEP-aligned enquiry go hand in hand with timeless values, social responsibility, and emotional well-being.",
+        "Every child is a powerhouse of infinite potential. Our dedicated faculty members guide each learner to think independently, explore fearlessly, embrace diverse viewpoints, and turn their creative ideas into positive real-world contributions.",
+        "We invite parents to walk alongside us as vital partners on this transformative journey — celebrating every developmental milestone and nurturing confident, purposeful citizens who will make a meaningful difference to society."
+      ],
+      closing: "Together, let us inspire every child to dream ambitiously, learn joyfully, and lead with purpose."
+    },
     principalsMessage: {
-      title: "Principal’s Message",
-      message: "As your Principal, I am dedicated to cultivating an atmosphere where students become confident lifelong learners. At NPS, we prioritize a safe, motivating, and highly supportive environment that encourages innate curiosity and fearless exploration. We passionately believe in celebrating every student's achievement, big or small, as they develop essential skills and strong character. Our goal is to ensure that through a combination of expert guidance and inspiring challenges, every learner can freely explore their unique passions, build the resilience to succeed, and ultimately excel in every endeavor."
+      title: "Rooted Locally, Thinking Globally, and Growing Joyfully",
+      photo: "assets/images/principal-photo.jpg",
+      lead: "At NPS Hope Farm, we believe in taking every child from the local to the global — deeply rooted in our culture, values and heritage, yet confident and ready to embrace the world.",
+      paragraphs: [
+        "Our approach to education goes beyond academics. We nurture the Head, Heart and Hand — developing knowledge, emotional well-being and the skills to apply learning in real life.",
+        "In the early years, we draw from Montessori, Kindergarten and Multiple Intelligences approaches, recognising that every child is unique and every child learns differently.",
+        "As children progress from Grades 1 to 6, we consciously build their Listening, Speaking, Reading and Writing skills, while developing critical thinking, creativity, communication, collaboration and learner agency.",
+        "We give equal importance to a child’s Emotional Quotient and Happy Quotient, because a child who feels secure, valued and happy is better prepared to learn, explore and grow.",
+        "And most importantly, we believe education is not about what to think, but how to think — how to question, connect, create, reflect and find solutions.",
+        "Our goal is to nurture children with confidence, self-esteem, empathy and resilience, who are proud of where they come from and ready to make a meaningful difference to the world."
+      ],
+      closing: "That is the NPS Hope Farm journey — rooted locally, thinking globally, and growing joyfully.",
+      message: "At NPS Hope Farm, we believe in taking every child from the local to the global — deeply rooted in our culture, values and heritage, yet confident and ready to embrace the world. Our approach to education goes beyond academics. We nurture the Head, Heart and Hand — developing knowledge, emotional well-being and the skills to apply learning in real life. In the early years, we draw from Montessori, Kindergarten and Multiple Intelligences approaches, recognising that every child is unique and every child learns differently. As children progress from Grades 1 to 6, we consciously build their Listening, Speaking, Reading and Writing skills, while developing critical thinking, creativity, communication, collaboration and learner agency. We give equal importance to a child’s Emotional Quotient and Happy Quotient, because a child who feels secure, valued and happy is better prepared to learn, explore and grow. And most importantly, we believe education is not about what to think, but how to think — how to question, connect, create, reflect and find solutions. Our goal is to nurture children with confidence, self-esteem, empathy and resilience, who are proud of where they come from and ready to make a meaningful difference to the world. That is the NPS Hope Farm journey — rooted locally, thinking globally, and growing joyfully."
     }
   },
 
   programmes: {
     scholastic: {
-      intro: "Our scholastic curriculum is rigorously designed to be comprehensive, stimulating, and aligned with the CBSE framework, ensuring depth of knowledge and academic rigour. We move beyond rote learning to an enquiry-based, skills-focused approach that encourages students to question, research, analyze, and create knowledge.",
-      overviewP: "National Public School, Hope Farm has a unique approach to academics which amalgamates the CBSE curriculum with a modern, holistic and integrated system of education. We nurture an enquiring and entrepreneurial mindset by honing our students’ creativity, critical thinking and problem-solving skills with progressive teaching methods. Our optimal class size of 30 students provides each student with the personal attention they need to develop their multiple talents and become the leaders of tomorrow.",
+      intro: "Our scholastic curriculum is rigorously designed to be comprehensive, stimulating, and aligned with the NEP framework, ensuring depth of knowledge and academic rigour. We move beyond rote learning to an enquiry-based, skills-focused approach that encourages students to question, research, analyze, and create knowledge.",
+      overviewP: "National Public School, Hope Farm has a unique approach to academics which amalgamates the NEP curriculum with a modern, holistic and integrated system of education. We nurture an enquiring and entrepreneurial mindset by honing our students’ creativity, critical thinking and problem-solving skills with progressive teaching methods. Our optimal class size of 30 students provides each student with the personal attention they need to develop their multiple talents and become the leaders of tomorrow.",
       stages: [
         {
           id: "foundation",
           stageName: "The Foundation Stage",
-          grade: "Montessori / Pre-KG",
+          grade: "Nursery / Pre-KG",
           badgeClass: "badge-foundation",
-          summary: "The Pre-KG curriculum is designed as a smooth bridge between home and formal schooling, anchored in the Montessori Philosophy and enriched with modern early childhood education practices.",
-          pedagogy: "We follow a \"Learn through Discovery\" and \"Prepared Environment\" approach. The classroom is meticulously structured with specialized, manipulative Montessori materials that are self-correcting. This allows children to choose activities based on their innate curiosity and develop concentration, coordination, independence, and a sense of order at their own pace.",
+          summary: "The Pre-KG curriculum is designed as a smooth bridge between home and formal schooling, anchored in the Nursery Philosophy and enriched with modern early childhood education practices.",
+          pedagogy: "We follow a \"Learn through Discovery\" and \"Prepared Environment\" approach. The classroom is meticulously structured with specialized, manipulative Nursery materials that are self-correcting. This allows children to choose activities based on their innate curiosity and develop concentration, coordination, independence, and a sense of order at their own pace.",
           focusAreas: "Developing fine and gross motor skills, sensory perception, basic language (oral communication), number readiness, and essential life skills (Practical Life activities like dressing, pouring, and cleaning).",
           outcome: "Students become self-directed, confident learners who are intrinsically motivated and prepared for the structural transition to formal schooling."
         },
@@ -85,7 +110,7 @@ const NPS_CONTENT = {
           grade: "LKG / UKG",
           badgeClass: "badge-kindergarten",
           summary: "The Kindergarten programme shifts toward a more structured, yet highly engaging, Play-Based and Theme-Based Learning methodology, preparing children for the academic rigour of Grade I.",
-          pedagogy: "The core approach is Integrated Theme-Based Learning, where literacy, numeracy, and environmental awareness are taught through immersive themes, songs, stories, and cooperative play. We utilize the Inquiry-Based Learning model, encouraging children to ask \"Why?\" and \"How?\" and explore answers collaboratively. Phonics and early mathematical concepts are introduced using manipulatives (like Cuisenaire rods and unit blocks) and multi-sensory tools.",
+          pedagogy: "The core approach is Integrated Theme-Based Learning, where literacy, numeracy, and environmental awareness are taught through immersive themes, songs, stories, and cooperative play. We utilize the Enquiry-Based Learning model, encouraging children to ask \"Why?\" and \"How?\" and explore answers collaboratively. Phonics and early mathematical concepts are introduced using manipulatives (like Cuisenaire rods and unit blocks) and multi-sensory tools.",
           focusAreas: "Foundational literacy (Phonics, sight words, emergent reading), numeracy (number recognition, counting, basic arithmetic skills), critical listening, expressive language, and social-emotional development (sharing, taking turns, empathy).",
           outcome: "Students develop strong pre-reading and pre-writing skills, a solid conceptual understanding of basic math, and the social competence necessary for success in primary school."
         },
@@ -94,8 +119,8 @@ const NPS_CONTENT = {
           stageName: "Primary & Middle School",
           grade: "Grades I - VIII",
           badgeClass: "badge-primary",
-          summary: "For Grades I through VIII, the pedagogy evolves into a sophisticated blend of Constructivism, Experiential Learning, and Application-Based teaching, aligned with the CBSE framework. At Grade VI-VIII, the programme is designed as a Pre-CBSE foundation level programme in which several of the skills stressed in the CBSE are developed early.",
-          pedagogy: "Inquiry and Project-Based Learning (PBL): Knowledge is acquired through investigation, hypothesis formation, and problem-solving. Students regularly engage in hands-on projects, field studies, and research where they apply concepts from multiple subjects to solve real-world problems. Differentiated Instruction: Recognizing varied learning styles, our teachers employ multiple teaching methods (visual, auditory, kinesthetic) and adjust instruction to meet the needs of every student. Conceptual Depth: Emphasis is placed on critical thinking and analytical skills over rote memorisation. Science and Math are taught through extensive laboratory work and models, while Social Studies uses debates, simulations, and case studies.",
+          summary: "For Grades I through VIII, the pedagogy evolves into a sophisticated blend of Constructivism, Experiential Learning, and Application-Based teaching, aligned with the NEP framework. At Grade VI-VIII, the programme is designed as a foundational middle school NEP programme in which several of the skills stressed in the NEP are developed early.",
+          pedagogy: "Enquiry and Project-Based Learning (PBL): Knowledge is acquired through investigation, hypothesis formation, and problem-solving. Students regularly engage in hands-on projects, field studies, and research where they apply concepts from multiple subjects to solve real-world problems. Differentiated Instruction: Recognizing varied learning styles, our teachers employ multiple teaching methods (visual, auditory, kinesthetic) and adjust instruction to meet the needs of every student. Conceptual Depth: Emphasis is placed on critical thinking and analytical skills over rote memorisation. Science and Math are taught through extensive laboratory work and models, while Social Studies uses debates, simulations, and case studies.",
           focusAreas: "Mastery of core academic concepts, development of higher-order thinking skills, digital literacy, effective oral and written communication, and fostering independent study habits.",
           outcome: "Students become competent, critical thinkers who can analyse information, articulate complex ideas, and approach challenges with a disciplined, scientific mindset, preparing them effectively for the Secondary and Senior Secondary stages."
         }
@@ -129,7 +154,7 @@ const NPS_CONTENT = {
           name: "Morning Session",
           timingPrimary: "07:55 AM – 11:30 AM",
           timingPrePrimary: "08:30 AM – 10:30 AM",
-          desc: "Dedicated to Core Academic learning, conceptual exploration, foundational literacy, and interactive STEM discovery."
+          desc: "Dedicated to Core Academic learning, conceptual exploration, foundational literacy, and interactive AI discovery."
         },
         {
           name: "Mid-Day Break",
@@ -144,7 +169,7 @@ const NPS_CONTENT = {
           desc: "Focus on practical application, laboratory work, Co-Scholastic clubs, Performing Arts, and Physical Education/Sports."
         }
       ],
-      prePrimaryTimings: "Pre-Primary (Montessori/LKG/UKG): Typically a shorter day, running from approximately 8:30 AM to 12:30 PM.",
+      prePrimaryTimings: "Pre-Primary (Nursery/LKG/UKG): Typically a shorter day, running from approximately 8:30 AM to 12:30 PM.",
       primaryTimings: "Grade I and above: A longer school day, generally from 7:55 AM to 3:00 PM, including breaks for snacks and lunch."
     }
   },
@@ -160,16 +185,16 @@ const NPS_CONTENT = {
     {
       id: "library",
       category: "Resource Centre",
-      title: "Library & Media Centre",
+      title: "Library",
       image: "assets/images/campus_library.webp",
-      desc: "A serene, expansive resource centre housing a vast collection of over 5000+ titles, a dedicated reference section, and digital resources (CDs, DVDs, e-books). It serves as the main centre for research, reading, and self-study, fostering a lifelong love for literature and inquiry."
+      desc: "A serene, expansive Library housing an extensive collection of over 5,000+ curated volumes, reference encyclopedias, periodicals, and dedicated reading zones fostering independent research and a lifelong passion for reading."
     },
     {
-      id: "laboratories",
+      id: "composite-science-lab",
       category: "STEM & Discovery",
-      title: "Laboratories",
+      title: "Composite Science Lab",
       image: "assets/images/campus_stem_lab.webp",
-      desc: "Purpose-built spaces designed to foster scientific inquiry and hands-on application across all key subjects. Fully equipped, modern facilities dedicated to Physics, Chemistry, Biology, Mathematics, and Computer Science (Cyber Lab). All labs meet strict safety protocols and are equipped with the latest tools and materials to ensure effective and secure practical work."
+      desc: "State-of-the-art Composite Science Lab designed to foster scientific curiosity and hands-on discovery. Complemented by specialized facilities including a dedicated Nursery Lab, Math Lab, Activity Lab, and Hydrophonic Lab, equipping students with practical, enquiry-based learning across experiential disciplines."
     },
     {
       id: "sports",
@@ -178,33 +203,27 @@ const NPS_CONTENT = {
       image: "assets/images/campus_sports_play.webp",
       desc: "State-of-the-art facilities designed to promote physical literacy, teamwork, and competitive sportsmanship year-round. Features a large multipurpose playground, a full-sized Basketball Court, dedicated zones for Cricket practice and Athletics, modern Badminton Courts, and Table Tennis facilities."
     },
+
     {
-      id: "cafeteria",
-      category: "Health & Nutrition",
-      title: "Cafeteria",
-      image: "assets/images/kids-table-primary-school-cafeteria-look-camera.webp",
-      desc: "A hygienic and spacious dining area committed to providing nutritious and balanced vegetarian meals and snacks under strict cleanliness standards. Functions as a comfortable area for students to socialize and relax during breaks."
-    },
-    {
-      id: "wellness",
+      id: "infirmary",
       category: "Student Well-being",
-      title: "Wellness Centre",
+      title: "Infirmary",
       image: "assets/images/campus_wellness.webp",
-      desc: "A dedicated centre focusing on comprehensive physical and mental health support for every student. Staffed by a qualified nurse and a professional counsellor to provide immediate first aid, routine health checks, medical record maintenance, and confidential counselling."
+      desc: "A fully equipped campus Infirmary dedicated to student health, wellness, and prompt medical attention. Staffed by a qualified medical professional for immediate first aid, routine health checks, emergency care, and complete student medical well-being."
     },
     {
-      id: "auditorium",
+      id: "atrium",
       category: "Arts & Culture",
-      title: "Auditorium & AV Hall",
+      title: "Atrium",
       image: "assets/images/campus_auditorium.webp",
-      desc: "A magnificent, acoustically-treated auditorium with seating capacity for over 500 people. Serves as the central hub for cultural events, assemblies, Annual Day, guest lectures, seminars, and large-scale school gatherings."
+      desc: "A magnificent, naturally lit central Atrium designed as the vibrant architectural heart of the campus. Serves as a dynamic gathering space for morning assemblies, cultural showcases, student exhibitions, celebrations, and collaborative interactions."
     },
     {
-      id: "studios",
+      id: "dance-studio",
       category: "Arts & Culture",
-      title: "Music & Dance Studios",
+      title: "Dance Studio",
       image: "assets/images/campus_music_studio.webp",
-      desc: "Dedicated, purpose-built studios designed for focused practice and instruction in instrumental/vocal music as well as classical and contemporary dance forms, nurturing artistic expression and stage presence."
+      desc: "A dedicated, purpose-built Dance Studio equipped with specialised wooden sprung flooring, full-length rehearsal mirrors, and professional audio systems for classical and contemporary dance instruction, rehearsals, and creative self-expression."
     },
     {
       id: "transport",
@@ -217,9 +236,9 @@ const NPS_CONTENT = {
 
   beyondAcademics: [
     {
-      title: "STEM & Robotics",
-      desc: "Students engage in project-based learning to apply concepts from Science and Mathematics to solve real-world engineering and design problems. Focuses on foundational coding, programming languages, and robotics, fostering analytical skills and prototyping in a dedicated lab environment.",
-      tags: ["Robotics Lab", "Applied Coding", "Engineering Design"]
+      title: "AI & Robotics",
+      desc: "Students engage in project-based learning to apply concepts from Artificial Intelligence, Science, and Mathematics to solve real-world engineering and design problems. Focuses on foundational coding, programming languages, and robotics, fostering analytical skills and prototyping in a dedicated lab environment.",
+      tags: ["AI Lab", "Robotics", "Applied Coding"]
     },
     {
       title: "Literature & Debating",
@@ -227,9 +246,9 @@ const NPS_CONTENT = {
       tags: ["Debate Club", "Model UN", "Public Speaking", "Creative Writing"]
     },
     {
-      title: "Music, Art, Dance & Drama",
-      desc: "Providing platforms for self-expression, cultural appreciation, and creative excellence. Specialized training in classical/contemporary dance, instrumental/vocal music, fine arts, sculpture, and drama productions.",
-      tags: ["Fine Arts", "Vocal & Instrumental", "Theatre Arts", "Contemporary Dance"]
+      title: "Music, Art & Dance",
+      desc: "Providing platforms for self-expression, cultural appreciation, and creative excellence. Specialized training in classical/contemporary dance, instrumental/vocal music, fine arts, and sculpture.",
+      tags: ["Fine Arts", "Vocal & Instrumental", "Contemporary Dance"]
     },
     {
       title: "Sports & Physical Education",
@@ -275,7 +294,7 @@ const NPS_CONTENT = {
       }
     ],
     positions: [
-      "Pre-Primary Teachers (Montessori / NTT Certified)",
+      "Pre-Primary Teachers (Nursery / NTT Certified)",
       "Primary Teachers (PRT - All Subjects)",
       "Middle School Teachers (TGT - English, Math, Science, Social Sciences, Hindi, Kannada, French)",
       "Specialist Teachers (Robotics & AI, Art, Music, Dance, Physical Education / Coaches)",
@@ -296,26 +315,31 @@ const NPS_CONTENT = {
       },
       {
         num: "02",
+        title: "Offer & Fee Confirmation",
+        desc: "Shortlisted families receive formal admission offers with fee details payable securely via the parent portal."
+      },
+      {
+        num: "03",
         title: "Document Verification",
         desc: "Submission of birth certificate, previous school reports/progress cards, and proof of address for preliminary validation."
       },
       {
-        num: "03",
+        num: "04",
         title: "Interaction / Assessment",
         desc: "Observation and informal interaction for Pre-Primary; age-appropriate proficiency assessment for Grade I and above."
       },
       {
-        num: "04",
-        title: "Offer & Fee Confirmation",
-        desc: "Shortlisted families receive formal admission offers with fee details payable securely via the parent portal."
+        num: "05",
+        title: "Counselling",
+        desc: "Personalised one-on-one session for parents and students to discuss learning pathways, address queries, and ensure holistic student support."
       }
     ]
   },
 
   faqs: [
     {
-      q: "1. Which educational board is NPS Hopefarm affiliated with?",
-      a: "NPS Hopefarm is affiliated with the Central Board of Secondary Education (CBSE), New Delhi, known for its comprehensive and academically rigorous curriculum."
+      q: "1. Which educational framework does NPS Hopefarm follow?",
+      a: "NPS Hopefarm follows the National Education Policy (NEP) curriculum framework, known for its comprehensive, holistic, and academically rigorous learning standards."
     },
     {
       q: "2. How can I find out about the fee structure?",
@@ -331,7 +355,7 @@ const NPS_CONTENT = {
     },
     {
       q: "5. Where can I find the Age Criteria for admission?",
-      a: "The detailed age criteria for all grades are available on the official NPS Hopefarm admissions portal. The criteria are strictly followed as per the CBSE guidelines and NPS Group policy (e.g., typically a child must be 5 years old as on June 1st of the academic year for UKG)."
+      a: "The detailed age criteria for all grades are available on the official NPS Hopefarm admissions portal. The criteria are strictly followed as per the NEP guidelines and NPS Group policy (e.g., typically a child must be 5 years old as on June 1st of the academic year for UKG)."
     },
     {
       q: "6. Is the school campus monitored for safety and security?",
@@ -339,7 +363,7 @@ const NPS_CONTENT = {
     },
     {
       q: "7. Up to which grade level is the school currently operational?",
-      a: "The school is typically established for Pre-Primary and Primary levels initially. For the upcoming academic year, NPS Hopefarm is enrolling students from Pre-KG (Montessori) up to Grade VIII. The school will expand to Grade XII in a phased manner in subsequent years."
+      a: "The school is typically established for Pre-Primary and Primary levels initially. For the upcoming academic year, NPS Hopefarm is enrolling students from Pre-KG (Nursery) up to Grade VIII. The school will expand to Grade XII in a phased manner in subsequent years."
     },
     {
       q: "8. Is there a sibling concession?",
@@ -347,7 +371,7 @@ const NPS_CONTENT = {
     },
     {
       q: "9. What are the school timings?",
-      a: "Pre-Primary (Montessori/LKG/UKG): Typically a shorter day, running from approximately 8:30 AM to 12:30 PM. Grade I and above: A longer school day, generally from 7:55 AM to 3:00 PM, including breaks for snacks and lunch. Note: Specific timings will be confirmed closer to the commencement of the academic year."
+      a: "Pre-Primary (Nursery/LKG/UKG): Typically a shorter day, running from approximately 8:30 AM to 12:30 PM. Grade I and above: A longer school day, generally from 7:55 AM to 3:00 PM, including breaks for snacks and lunch. Note: Specific timings will be confirmed closer to the commencement of the academic year."
     },
     {
       q: "10. Are textbooks and notebooks provided by the school?",

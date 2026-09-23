@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScheduleTabs();
   initForms();
   initHappeningsSlider();
+  initWhatsAppSelector();
 });
 
 /* ==========================================================================
@@ -181,6 +182,12 @@ function initRouter() {
         leadershipSec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
         leadershipSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    } else if (hash.includes('chairman-message')) {
+      const chairmanSec = document.getElementById('about-chairman-message');
+      if (chairmanSec) {
+        chairmanSec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        chairmanSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     } else if (hash.includes('principals-message')) {
       const principalSec = document.getElementById('principal-message-section') || document.getElementById('about-principals-message');
       if (principalSec) {
@@ -225,37 +232,21 @@ function initRouter() {
 /* ==========================================================================
    ENQUIRY DRAWER & MODAL
    ========================================================================== */
+const ENQUIRY_URL = 'https://npshopefarm.edchemy.com/enquiry.html';
+
 function initEnquiryDrawer() {
   const openButtons = document.querySelectorAll('.open-enquiry-drawer');
-  const drawer = document.getElementById('enquiry-drawer');
-  const overlay = document.getElementById('enquiry-drawer-overlay');
-  const closeBtn = document.getElementById('enquiry-drawer-close');
 
-  function openDrawer(e) {
+  function openEnquiry(e) {
     if (e) e.preventDefault();
-    if (drawer && overlay) {
-      drawer.classList.add('active');
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+    window.open(ENQUIRY_URL, '_blank', 'noopener,noreferrer');
   }
 
-  function closeDrawer() {
-    if (drawer && overlay) {
-      drawer.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
+  openButtons.forEach(btn => btn.addEventListener('click', openEnquiry));
 
-  openButtons.forEach(btn => btn.addEventListener('click', openDrawer));
-  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-  if (overlay) overlay.addEventListener('click', closeDrawer);
-
-  // Escape key closes drawer
+  // Escape key — kept for safety in case drawer HTML still exists on page
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeDrawer();
       closeCareersModal();
     }
   });
@@ -364,11 +355,11 @@ function initInfrastructureFilters() {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const filterValue = btn.getAttribute('data-filter');
+      const filterValue = (btn.getAttribute('data-filter') || '').toLowerCase();
 
       cards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filterValue === 'all' || category === filterValue) {
+        const category = (card.getAttribute('data-category') || '').toLowerCase();
+        if (filterValue === 'all' || category.includes(filterValue) || filterValue.includes(category)) {
           card.style.display = 'flex';
           card.classList.add('fade-in');
         } else {
@@ -496,11 +487,24 @@ function initForms() {
   if (careerForm) {
     careerForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      showToast("Application submitted successfully. HR will review your profile.");
+
+      const name = document.getElementById('career-name')?.value || '';
+      const email = document.getElementById('career-email')?.value || '';
+      const phone = document.getElementById('career-phone')?.value || '';
+      const role = document.getElementById('career-role')?.value || '';
+      const exp = document.getElementById('career-experience')?.value || '';
+
+      const message = `Hello NPS Hopefarm,\nI would like to apply for the faculty position.\nHere are my details:\n• Name: ${name}\n• Position Applied For: ${role}\n• Mobile: ${phone}\n• Email: ${email}\n• Experience: ${exp}`;
+
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=919900031002&text=${encodeURIComponent(message)}`;
+
+      showToast("Redirecting to WhatsApp with your application details...");
       careerForm.reset();
+
       setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
         if (window.closeCareersModal) window.closeCareersModal();
-      }, 1400);
+      }, 600);
     });
   }
 }
@@ -778,3 +782,60 @@ function initHappeningsSlider() {
   startAutoPlay();
 }
 
+/* ==========================================================================
+   WHATSAPP DUAL-NUMBER HELPLINE SELECTOR
+   ========================================================================== */
+function initWhatsAppSelector() {
+  const launcher = document.querySelector('.whatsapp-floating-launcher');
+  if (!launcher) return;
+
+  const toggleBtn = launcher.querySelector('.whatsapp-quick-btn');
+  const popup = launcher.querySelector('.whatsapp-popup');
+  const closeBtn = launcher.querySelector('.whatsapp-popup-close');
+
+  if (!toggleBtn || !popup) return;
+
+  function openPopup() {
+    popup.classList.add('active');
+    popup.setAttribute('aria-hidden', 'false');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  function closePopup() {
+    popup.classList.remove('active');
+    popup.setAttribute('aria-hidden', 'true');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (popup.classList.contains('active')) {
+      closePopup();
+    } else {
+      openPopup();
+    }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closePopup();
+    });
+  }
+
+  // Close when clicking outside launcher
+  document.addEventListener('click', (e) => {
+    if (!launcher.contains(e.target)) {
+      closePopup();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popup.classList.contains('active')) {
+      closePopup();
+    }
+  });
+}

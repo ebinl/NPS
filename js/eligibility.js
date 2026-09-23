@@ -1,6 +1,6 @@
 /**
- * NPS HOPEFARM - CBSE AGE ELIGIBILITY CALCULATOR
- * Evaluates child birthdate against CBSE June 1st academic cutoff guidelines
+ * NPS HOPEFARM - NEP AGE ELIGIBILITY CALCULATOR
+ * Evaluates child birthdate against NEP June 1st academic cutoff guidelines
  */
 
 function initAgeCalculator() {
@@ -45,7 +45,7 @@ function initAgeCalculator() {
       eligibleClass = "Toddler / Pre-Nursery";
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Eligible for future preschool batch.`;
     } else if (ageInDecimal >= 3.0 && ageInDecimal < 4.0) {
-      eligibleClass = "Montessori / Pre-KG (Nursery)";
+      eligibleClass = "Nursery / Pre-KG";
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Fully eligible for the 2027-28 Foundation Stage.`;
     } else if (ageInDecimal >= 4.0 && ageInDecimal < 5.0) {
       eligibleClass = "LKG (Kindergarten I)";
@@ -55,7 +55,7 @@ function initAgeCalculator() {
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Eligible for UKG preparatory grade.`;
     } else if (ageInDecimal >= 6.0 && ageInDecimal < 7.0) {
       eligibleClass = "Grade I";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Meets standard NEP/CBSE criteria (minimum 6 years for Grade I).`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Meets standard NEP criteria (minimum 6 years for Grade I).`;
     } else if (ageInDecimal >= 7.0 && ageInDecimal < 8.0) {
       eligibleClass = "Grade II";
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Subject to previous academic report card.`;
@@ -70,7 +70,7 @@ function initAgeCalculator() {
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Subject to seat vacancy.`;
     } else if (ageInDecimal >= 11.0 && ageInDecimal < 12.0) {
       eligibleClass = "Grade VI";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Pre-CBSE foundation stage.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Foundational middle school NEP stage.`;
     } else if (ageInDecimal >= 12.0 && ageInDecimal < 13.0) {
       eligibleClass = "Grade VII";
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Middle school entry.`;
@@ -78,7 +78,7 @@ function initAgeCalculator() {
       eligibleClass = "Grade VIII";
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Senior entry for current session.`;
     } else {
-      eligibleClass = "Higher Secondary Inquiries";
+      eligibleClass = "Higher Secondary Enquiries";
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Please contact school administration directly.`;
     }
 
