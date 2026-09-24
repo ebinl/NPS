@@ -1,6 +1,6 @@
 /**
- * NPS HOPEFARM - NEP AGE ELIGIBILITY CALCULATOR
- * Evaluates child birthdate against NEP June 1st academic cutoff guidelines
+ * NPS HOPEFARM - GRADE ELIGIBILITY CALCULATOR
+ * Evaluates child birthdate against June 1st academic cutoff guidelines
  */
 
 function initAgeCalculator() {
@@ -45,38 +45,38 @@ function initAgeCalculator() {
       eligibleClass = "Toddler / Pre-Nursery";
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Eligible for future preschool batch.`;
     } else if (ageInDecimal >= 3.0 && ageInDecimal < 4.0) {
-      eligibleClass = "Nursery / Pre-KG";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Fully eligible for the 2027-28 Foundation Stage.`;
+      eligibleClass = "Nursery";
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: Nursery for 2027-28.`;
     } else if (ageInDecimal >= 4.0 && ageInDecimal < 5.0) {
       eligibleClass = "LKG (Kindergarten I)";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Eligible for Kindergarten Transition.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: LKG (Kindergarten I).`;
     } else if (ageInDecimal >= 5.0 && ageInDecimal < 6.0) {
       eligibleClass = "UKG (Kindergarten II)";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Eligible for UKG preparatory grade.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: UKG (Kindergarten II).`;
     } else if (ageInDecimal >= 6.0 && ageInDecimal < 7.0) {
       eligibleClass = "Grade I";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Meets standard NEP criteria (minimum 6 years for Grade I).`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: Grade I (minimum 6 years as of June 1, 2027).`;
     } else if (ageInDecimal >= 7.0 && ageInDecimal < 8.0) {
       eligibleClass = "Grade II";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Subject to previous academic report card.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: Grade II.`;
     } else if (ageInDecimal >= 8.0 && ageInDecimal < 9.0) {
       eligibleClass = "Grade III";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Subject to vacancy & assessment.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: Grade III.`;
     } else if (ageInDecimal >= 9.0 && ageInDecimal < 10.0) {
       eligibleClass = "Grade IV";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Assessment required for admission.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: Grade IV.`;
     } else if (ageInDecimal >= 10.0 && ageInDecimal < 11.0) {
       eligibleClass = "Grade V";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Subject to seat vacancy.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: Grade V.`;
     } else if (ageInDecimal >= 11.0 && ageInDecimal < 12.0) {
       eligibleClass = "Grade VI";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Foundational middle school NEP stage.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: Grade VI (Middle School).`;
     } else if (ageInDecimal >= 12.0 && ageInDecimal < 13.0) {
       eligibleClass = "Grade VII";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Middle school entry.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: Grade VII.`;
     } else if (ageInDecimal >= 13.0 && ageInDecimal < 14.5) {
       eligibleClass = "Grade VIII";
-      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Senior entry for current session.`;
+      guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Calculated Grade: Grade VIII.`;
     } else {
       eligibleClass = "Higher Secondary Enquiries";
       guidance = `Age as of June 1, 2027: ${years} yrs ${months} mos. Please contact school administration directly.`;
