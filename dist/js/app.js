@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initForms();
   initHappeningsSlider();
   initWhatsAppSelector();
+  initPageScrollControls();
+  initLeadershipModal();
 });
 
 /* ==========================================================================
@@ -145,31 +147,124 @@ function initNavigation() {
 }
 
 /* ==========================================================================
+   FLOATING PAGE SCROLL CONTROLS
+   ========================================================================== */
+function initPageScrollControls() {
+  const controls = document.querySelector('.page-scroll-controls');
+  if (!controls) return;
+
+  const buttons = controls.querySelectorAll('[data-scroll-direction]');
+  if (!buttons.length) return;
+
+  let scrollUpdatePending = false;
+
+  function updateButtonStates() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const isAtTop = scrollTop <= 10;
+    const isAtBottom = scrollTop >= maxScroll - 10;
+
+    controls.querySelector('[data-scroll-direction="up"]')?.toggleAttribute('disabled', isAtTop);
+    controls.querySelector('[data-scroll-direction="down"]')?.toggleAttribute('disabled', isAtBottom);
+    scrollUpdatePending = false;
+  }
+
+  function requestButtonStateUpdate() {
+    if (scrollUpdatePending) return;
+    scrollUpdatePending = true;
+    window.requestAnimationFrame(updateButtonStates);
+  }
+
+  function jumpTo(targetY) {
+    const root = document.documentElement;
+    const previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo({
+      top: targetY,
+      left: 0,
+      behavior: 'instant'
+    });
+    requestAnimationFrame(() => {
+      root.style.scrollBehavior = previousBehavior;
+      updateButtonStates();
+    });
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isUp = button.dataset.scrollDirection === 'up';
+      if (isUp) {
+        jumpTo(0);
+      } else {
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        jumpTo(maxScroll);
+      }
+    });
+  });
+
+  window.addEventListener('scroll', requestButtonStateUpdate, { passive: true });
+  window.addEventListener('resize', requestButtonStateUpdate);
+  updateButtonStates();
+}
+
+/* ==========================================================================
    ROUTER & DEEP LINKING
    ========================================================================== */
 function initRouter() {
+  function instantJumpToElement(targetEl, offset = 80) {
+    if (!targetEl) return;
+    targetEl.classList.add('visible');
+    targetEl.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+
+    const elementPosition = targetEl.getBoundingClientRect().top;
+    const offsetPosition = Math.max(0, elementPosition + window.scrollY - offset);
+
+    const root = document.documentElement;
+    const prevBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+
+    window.scrollTo({
+      top: offsetPosition,
+      left: 0,
+      behavior: 'instant'
+    });
+
+    requestAnimationFrame(() => {
+      root.style.scrollBehavior = prevBehavior;
+    });
+  }
+
   function handleHash() {
     const hash = window.location.hash;
     if (!hash || hash === '#') return;
 
+    const isInstant = hash.includes('gallery') || hash.includes('events') ||
+                      hash.includes('school-leadership') || hash.includes('leadership-message') ||
+                      hash.includes('chairman-message') || hash.includes('secretary-message') ||
+                      hash.includes('principals-message');
+
     // Direct section scroll
     const targetEl = document.querySelector(hash.replace('/', '-').replace('/', '-'));
     if (targetEl) {
-      // Immediately reveal all reveals in target element so no white blank space appears
       targetEl.classList.add('visible');
       targetEl.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 
-      const headerOffset = 100;
-      const elementPosition = targetEl.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      if (isInstant) {
+        instantJumpToElement(targetEl);
+      } else {
+        const headerOffset = 100;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     }
 
-    // Specific sub-tab activation
+    // Specific sub-tab or modal activations
     if (hash.includes('vision-and-mission')) {
       const tab = document.getElementById('about-vm-anchor') || document.getElementById('about-vision-mission');
       if (tab) {
@@ -179,20 +274,30 @@ function initRouter() {
     } else if (hash.includes('the-leadership')) {
       const leadershipSec = document.getElementById('leadership-section') || document.getElementById('about-the-leadership');
       if (leadershipSec) {
-        leadershipSec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-        leadershipSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        instantJumpToElement(leadershipSec);
       }
     } else if (hash.includes('chairman-message')) {
-      const chairmanSec = document.getElementById('about-chairman-message');
+      const chairmanSec = document.getElementById('about-chairman-message') || document.getElementById('school-leadership-section');
       if (chairmanSec) {
-        chairmanSec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-        chairmanSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        instantJumpToElement(chairmanSec);
+        window.openSchoolLeaderModal?.('chairman');
+      }
+    } else if (hash.includes('secretary-message')) {
+      const secretarySec = document.getElementById('about-secretary-message') || document.getElementById('school-leadership-section');
+      if (secretarySec) {
+        instantJumpToElement(secretarySec);
+        window.openSchoolLeaderModal?.('secretary');
       }
     } else if (hash.includes('principals-message')) {
-      const principalSec = document.getElementById('principal-message-section') || document.getElementById('about-principals-message');
+      const principalSec = document.getElementById('about-principals-message') || document.getElementById('school-leadership-section');
       if (principalSec) {
-        principalSec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-        principalSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        instantJumpToElement(principalSec);
+        window.openSchoolLeaderModal?.('principal');
+      }
+    } else if (hash.includes('gallery') || hash.includes('events')) {
+      const gallerySec = document.getElementById('gallery') || document.getElementById('events');
+      if (gallerySec) {
+        instantJumpToElement(gallerySec);
       }
     } else if (hash.includes('co-scholastic')) {
       const coScholasticTab = document.getElementById('tab-btn-coscholastic');
@@ -206,10 +311,52 @@ function initRouter() {
     }
   }
 
+  // Intercept on-page instant clicks without scrolling
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="#"]');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const hashIndex = href.indexOf('#');
+    if (hashIndex === -1) return;
+
+    const hash = href.slice(hashIndex);
+    const isInstant = link.classList.contains('instant-nav-link') ||
+                      hash === '#gallery' || hash === '#events' ||
+                      hash === '#school-leadership-section' ||
+                      hash === '#about-the-leadership';
+
+    if (!isInstant) return;
+
+    const currentPath = window.location.pathname.replace(/\/$/, '');
+    const currentFile = currentPath.split('/').pop() || 'index.html';
+    const targetFile = href.slice(0, hashIndex).split('/').pop();
+
+    const isCurrentPage = !targetFile || targetFile === currentFile ||
+                          ((currentFile === '' || currentFile === 'index.html') && targetFile === 'index.html') ||
+                          (currentFile === 'about.html' && targetFile === 'about.html');
+
+    if (isCurrentPage) {
+      const targetId = hash.slice(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        instantJumpToElement(targetEl);
+        history.pushState(null, '', hash);
+        const mobileDrawer = document.getElementById('mobile-nav-drawer');
+        if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+          const mobileClose = document.getElementById('mobile-nav-close');
+          mobileClose?.click();
+        }
+      }
+    }
+  });
+
   window.addEventListener('hashchange', handleHash);
   // Initial check on load
   if (window.location.hash) {
-    setTimeout(handleHash, 100);
+    setTimeout(handleHash, 60);
   }
 
   // Pre-reveal section whenever a user clicks any anchor link
@@ -883,6 +1030,78 @@ function initWhatsAppSelector() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && popup.classList.contains('active')) {
       closePopup();
+    }
+  });
+}
+
+/* ==========================================================================
+   SCHOOL LEADERSHIP EXECUTIVE MODAL
+   ========================================================================== */
+function initLeadershipModal() {
+  const modalBackdrop = document.getElementById('leadership-modal-backdrop');
+  if (!modalBackdrop) return;
+
+  const closeBtn = document.getElementById('leadership-modal-close');
+  const tabButtons = modalBackdrop.querySelectorAll('.leadership-modal-tab-btn');
+  const panes = modalBackdrop.querySelectorAll('.leader-pane');
+  const openButtons = document.querySelectorAll('.open-leader-modal-btn');
+
+  function openLeader(leaderKey) {
+    const validKey = ['chairman', 'secretary', 'principal'].includes(leaderKey) ? leaderKey : 'chairman';
+
+    tabButtons.forEach(btn => {
+      const match = btn.dataset.leaderTab === validKey;
+      btn.classList.toggle('is-active', match);
+      btn.setAttribute('aria-selected', match ? 'true' : 'false');
+    });
+
+    panes.forEach(pane => {
+      const match = pane.dataset.leaderPane === validKey;
+      pane.classList.toggle('is-active', match);
+    });
+
+    modalBackdrop.classList.add('is-open');
+    modalBackdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    const activeBtn = modalBackdrop.querySelector(`.leadership-modal-tab-btn[data-leader-tab="${validKey}"]`);
+    activeBtn?.focus();
+  }
+
+  function closeModal() {
+    modalBackdrop.classList.remove('is-open');
+    modalBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  window.openSchoolLeaderModal = openLeader;
+
+  openButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const leader = btn.dataset.leader || 'chairman';
+      openLeader(leader);
+    });
+  });
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const leader = btn.dataset.leaderTab;
+      openLeader(leader);
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeModal);
+
+  modalBackdrop.addEventListener('click', (e) => {
+    if (e.target === modalBackdrop) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalBackdrop.classList.contains('is-open')) {
+      closeModal();
     }
   });
 }

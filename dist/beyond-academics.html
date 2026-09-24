@@ -33,7 +33,7 @@
   <link rel="preload" as="image" href="/assets/campus_hero-CKlQWoSN.webp" type="image/webp" fetchpriority="high">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" crossorigin href="/assets/animations-CRZ_NxaJ.css">
+  <link rel="stylesheet" crossorigin href="/assets/animations-BtfPsd7o.css">
 </head>
 
 <body>
@@ -134,13 +134,9 @@
                 </svg>
                 <span>The Leadership</span>
               </a>
-              <a href="about.html#about-principals-message" class="dropdown-item">
-                <svg class="item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
-                  </path>
-                </svg>
-                <span>Principal’s Message</span>
+              <a href="about.html#school-leadership-section" class="dropdown-item instant-nav-link" data-instant-target="school-leadership-section">
+                <svg class="item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                <span>Leadership Messages</span>
               </a>
             </div>
           </li>
@@ -189,6 +185,9 @@
 
           <li class="nav-item">
             <a href="admission-process.html" class="nav-link">Admission Process</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#gallery" class="nav-link instant-nav-link" data-instant-target="gallery">Gallery</a>
           </li>
 
           <li class="nav-item">
@@ -265,7 +264,7 @@
             <a href="about.html#about-overview" class="mobile-sublink">Overview & Campus</a>
             <a href="about.html#about-vision-mission" class="mobile-sublink">Vision, Mission & Ethos</a>
             <a href="about.html#about-the-leadership" class="mobile-sublink">The Leadership (Dr. K. P. Gopalkrishna)</a>
-            <a href="about.html#about-principals-message" class="mobile-sublink">Principal’s Message</a>
+            <a href="about.html#school-leadership-section" class="mobile-sublink instant-nav-link" data-instant-target="school-leadership-section">Leadership Messages</a>
           </div>
         </li>
 
@@ -297,6 +296,11 @@
         <li class="mobile-nav-item">
           <a href="admission-process.html" class="mobile-nav-link">
             <span>Admission Process</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="index.html#gallery" class="mobile-nav-link instant-nav-link" data-instant-target="gallery">
+            <span>Gallery</span>
           </a>
         </li>
         <li class="mobile-nav-item">
@@ -512,7 +516,7 @@
           <!-- Student Council & Leadership -->
           <div class="beyond-card reveal delay-200">
             <div class="beyond-card-media">
-              <img src="/assets/campus-event-investiture-pinning-l9H4idi0.jpg" alt="Student Council Investiture and Badge Pinning Ceremony at NPS Hopefarm" loading="lazy">
+              <img src="/assets/campus-event-atrium-banners-DGS5zLJ_.jpg" alt="Student Council Investiture and Badge Pinning Ceremony at NPS Hopefarm" loading="lazy">
             </div>
             <div class="beyond-icon-box">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -765,8 +769,7 @@
             <a href="#about-overview">School Overview</a>
             <a href="#about-vision-mission">Vision & Mission</a>
             <a href="#about-the-leadership">The Leadership</a>
-            <a href="#about-the-leadership">Chairman's Message</a>
-            <a href="#about-principals-message">Principal’s Message</a>
+            <a href="about.html#school-leadership-section" class="instant-nav-link" data-instant-target="school-leadership-section">Leadership Messages</a>
             <a href="#infrastructure">Campus Facilities</a>
           </div>
         </div>
@@ -815,17 +818,105 @@
     </div>
   </footer>
 
+  <!-- Floating page scroll controls (Up / Down) -->
+  <div class="page-scroll-controls" role="group" aria-label="Page scroll controls">
+    <button type="button" class="page-scroll-btn page-scroll-up" data-scroll-direction="up"
+      aria-label="Scroll to top" title="Scroll Up">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m5 15 7-7 7 7" />
+      </svg>
+    </button>
+    <button type="button" class="page-scroll-btn page-scroll-down" data-scroll-direction="down"
+      aria-label="Scroll to bottom" title="Scroll Down">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7" />
+      </svg>
+    </button>
+  </div>
+
   <!-- ==========================================================================
-       WHATSAPP FLOATING LAUNCHER
+       WHATSAPP FLOATING LAUNCHER - SCHOOL ADMISSIONS DESK
        ========================================================================== -->
-  <div class="whatsapp-floating-launcher">
+  <div class="whatsapp-floating-launcher" id="whatsappFloatingLauncher">
+    <!-- Dual Admissions Desk Selector Popup -->
+    <div class="whatsapp-popup" id="whatsappPopup" role="dialog" aria-modal="false" aria-hidden="true"
+      aria-label="WhatsApp Admissions Desk">
+      <div class="whatsapp-popup-header">
+        <div class="whatsapp-popup-brand">
+          <div class="whatsapp-popup-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            </svg>
+            <span class="whatsapp-online-dot"></span>
+          </div>
+          <div>
+            <div class="whatsapp-popup-title">NPS Admissions Desk</div>
+            <div class="whatsapp-popup-status">National Public School, Hope Farm</div>
+          </div>
+        </div>
+        <button type="button" class="whatsapp-popup-close" aria-label="Close WhatsApp Menu">✕</button>
+      </div>
+
+      <div class="whatsapp-popup-body">
+        <div class="whatsapp-popup-prompt">Connect with our Admissions Counsellors:</div>
+
+        <!-- Admission Desk 1 -->
+        <a href="https://api.whatsapp.com/send?phone=919900025002&text=Hello%20National%20Public%20School%20(NPS)%20Hopefarm%20Admissions%20Team%2C%0A%0AI%20am%20enquiring%20about%20Admissions%20for%20Academic%20Year%202027-2028.%20Kindly%20guide%20me%20with%20the%20process%20and%20campus%20tour.%20Thank%20you!"
+          target="_blank" rel="noopener noreferrer" class="whatsapp-card-option">
+          <div class="whatsapp-card-badge primary">Admission Desk 1</div>
+          <div class="whatsapp-card-row">
+            <div class="whatsapp-card-info">
+              <span class="whatsapp-card-phone">+91 99000 25002</span>
+              <span class="whatsapp-card-sub">Admissions &amp; Enquiries Desk</span>
+            </div>
+            <div class="whatsapp-card-btn-icon">
+              <svg viewBox="0 0 24 24">
+                <path fill="currentColor"
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.164.577 4.195 1.587 5.952l-1.687 6.168 6.335-1.662c1.7 1.054 3.708 1.662 5.765 1.662 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Admission Desk 2 -->
+        <a href="https://api.whatsapp.com/send?phone=919900031002&text=Hello%20National%20Public%20School%20(NPS)%20Hopefarm%20Admissions%20Team%2C%0A%0AI%20am%20enquiring%20about%20Admissions%20for%20Academic%20Year%202027-2028.%20Kindly%20guide%20me%20with%20the%20process%20and%20campus%20tour.%20Thank%20you!"
+          target="_blank" rel="noopener noreferrer" class="whatsapp-card-option alternate">
+          <div class="whatsapp-card-badge alternate">Admission Desk 2</div>
+          <div class="whatsapp-card-row">
+            <div class="whatsapp-card-info">
+              <span class="whatsapp-card-phone">+91 99000 31002</span>
+              <span class="whatsapp-card-sub">School Office &amp; Direct Line</span>
+            </div>
+            <div class="whatsapp-card-btn-icon">
+              <svg viewBox="0 0 24 24">
+                <path fill="currentColor"
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.164.577 4.195 1.587 5.952l-1.687 6.168 6.335-1.662c1.7 1.054 3.708 1.662 5.765 1.662 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </div>
+          </div>
+        </a>
+
+        <div class="whatsapp-office-hours">
+          <svg style="width: 14px; height: 14px; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span>Office Hours: Mon – Sat | 8:30 AM – 4:00 PM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating WhatsApp Action Button -->
     <a href="https://api.whatsapp.com/send?phone=919900025002&text=Hello%20National%20Public%20School%20(NPS)%20Hopefarm%20Admissions%20Team%2C%0A%0AI%20am%20enquiring%20about%20Admissions%20for%20Academic%20Year%202027-2028.%20Kindly%20guide%20me%20with%20the%20process%20and%20campus%20tour.%20Thank%20you!"
       target="_blank" rel="noopener noreferrer" class="whatsapp-quick-btn"
-      title="Chat Directly on WhatsApp (+91 99000 25002)" aria-label="WhatsApp">
+      title="Chat with NPS Admissions Desk (+91 99000 25002 | +91 99000 31002)" aria-label="WhatsApp Admissions Desk">
       <svg viewBox="0 0 24 24">
         <path
-          d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.586-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z" />
+          d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.164.577 4.195 1.587 5.952l-1.687 6.168 6.335-1.662c1.7 1.054 3.708 1.662 5.765 1.662 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z" />
       </svg>
+      <span class="whatsapp-badge-pill">Admission Desk</span>
     </a>
   </div>
 
