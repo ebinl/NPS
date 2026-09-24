@@ -487,8 +487,9 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   height: var(--header-height);
-  gap: 1.25rem;
+  gap: clamp(0.35rem, 0.8vw, 1.25rem);
   width: 100%;
+  position: relative;
 }
 
 .logo-brand {
@@ -500,10 +501,11 @@ h1, h2, h3, h4, h5, h6 {
   min-width: max-content;
   position: relative;
   z-index: 10;
+  margin-right: clamp(0.35rem, 0.8vw, 1.25rem);
 }
 
 .logo-brand img.school-logo {
-  height: 50px;
+  height: clamp(36px, 2.7vw, 50px);
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -518,12 +520,14 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap; /* Strictly single line on desktop */
-  gap: clamp(0.12rem, 0.42vw, 0.65rem);
-  margin: 0;
+  justify-content: safe center;
+  flex-wrap: nowrap; /* Strictly single line */
+  gap: clamp(0.04rem, 0.28vw, 0.55rem);
+  margin: 0 auto;
   padding: 0;
   flex: 1 1 auto;
-  max-width: 1180px;
+  min-width: 0; /* Prevents overflow from pushing preceding siblings */
+  max-width: 100%;
 }
 
 .nav-item {
@@ -535,15 +539,16 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: clamp(0.12rem, 0.20vw, 0.35rem);
   white-space: nowrap; /* Strictly single line */
-  font-size: clamp(0.81rem, 0.87vw, 0.91rem);
+  /* Dynamically adjust font size as per window width */
+  font-size: clamp(0.66rem, 0.52vw + 0.24rem, 0.90rem);
   font-weight: 600;
   color: var(--slate-800);
-  padding: 0.52rem clamp(0.42rem, 0.58vw, 0.82rem);
+  padding: 0.44rem clamp(0.18rem, 0.35vw, 0.65rem);
   border-radius: var(--radius-sm);
-  transition: color 0.22s ease, background-color 0.22s ease;
-  letter-spacing: -0.01em;
+  transition: color 0.22s ease, background-color 0.22s ease, font-size 0.15s ease, padding 0.15s ease;
+  letter-spacing: -0.015em;
   position: relative;
 }
 
@@ -573,8 +578,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Animated Dropdown Arrow */
 .nav-link svg.dropdown-arrow {
-  width: 13px;
-  height: 13px;
+  width: clamp(9px, 0.7vw, 13px);
+  height: clamp(9px, 0.7vw, 13px);
   color: var(--slate-500);
   margin-left: 2px;
   flex-shrink: 0;
@@ -681,13 +686,17 @@ h1, h2, h3, h4, h5, h6 {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: clamp(0.35rem, 0.6vw, 0.85rem);
   flex-shrink: 0;
   white-space: nowrap;
+  margin-left: clamp(0.25rem, 0.6vw, 0.85rem);
+  z-index: 10;
 }
 
 .nav-actions .btn {
   white-space: nowrap;
+  font-size: clamp(0.72rem, 0.55vw + 0.22rem, 0.88rem);
+  padding: 0.44rem clamp(0.5rem, 0.75vw, 1.15rem);
 }
 
 /* ==========================================================================
@@ -1173,7 +1182,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Stats Bar */
 .hero-stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 2rem;
@@ -4334,25 +4343,75 @@ h1, h2, h3, h4, h5, h6 {
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
 
-@media (min-width: 1181px) and (max-width: 1380px) {
-  .nav-menu {
-    gap: 0.16rem;
+/* Tablet & Medium Desktop View (992px to 1380px):
+   Keeps the navbar text adjusting continuously with window width, preventing any logo overlap */
+@media (min-width: 992px) and (max-width: 1380px) {
+  .main-header .container {
+    width: 98%;
+    padding-left: clamp(0.5rem, 1vw, 1.25rem);
+    padding-right: clamp(0.5rem, 1vw, 1.25rem);
   }
-  .nav-link {
-    font-size: 0.78rem;
-    padding: 0.42rem 0.45rem;
+
+  .main-nav {
+    gap: clamp(0.2rem, 0.5vw, 0.65rem);
   }
+
+  .logo-brand {
+    margin-right: clamp(0.25rem, 0.5vw, 0.75rem);
+  }
+
   .logo-brand img.school-logo {
-    height: 44px;
+    height: clamp(34px, 2.4vw, 42px);
   }
-  .nav-actions .btn {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
+
+  .nav-menu {
+    gap: clamp(0.02rem, 0.18vw, 0.22rem);
+    justify-content: center;
+    justify-content: safe center;
+  }
+
+  .nav-link {
+    /* Fluid font size adjusting dynamically as per window size */
+    font-size: clamp(0.62rem, 0.46vw + 0.18rem, 0.76rem);
+    padding: 0.36rem clamp(0.14rem, 0.24vw, 0.38rem);
+    letter-spacing: -0.02em;
+    gap: 0.18rem;
+  }
+
+  .nav-link svg.dropdown-arrow {
+    width: 9px;
+    height: 9px;
+    margin-left: 1px;
+  }
+
+  .nav-actions {
+    gap: 0.35rem;
+    margin-left: clamp(0.15rem, 0.3vw, 0.4rem);
+  }
+
+  .nav-actions .btn.open-enquiry-drawer {
+    padding: 0.40rem clamp(0.40rem, 0.6vw, 0.75rem);
+    font-size: clamp(0.68rem, 0.5vw + 0.18rem, 0.78rem);
+    white-space: nowrap;
   }
 }
 
-/* Tablet & Mobile Breakpoint: Strictly Hamburger Menu */
-@media (max-width: 1180px) {
+/* Extra compact optimization for 992px to 1160px tablets */
+@media (min-width: 992px) and (max-width: 1160px) {
+  .nav-actions .btn.open-enquiry-drawer svg {
+    display: none;
+  }
+  .nav-link {
+    font-size: clamp(0.60rem, 0.42vw + 0.16rem, 0.69rem);
+    padding: 0.32rem clamp(0.12rem, 0.18vw, 0.25rem);
+  }
+  .logo-brand img.school-logo {
+    height: 34px;
+  }
+}
+
+/* Mobile & Portrait Tablet Breakpoint: Strictly Hamburger Menu (< 992px) */
+@media (max-width: 991px) {
   .nav-menu {
     display: none !important;
   }
@@ -4366,8 +4425,11 @@ h1, h2, h3, h4, h5, h6 {
   .top-bar .container {
     justify-content: center;
   }
+}
+
+@media (max-width: 1180px) {
   .hero-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .curriculum-grid,
   .infra-grid,

@@ -193,7 +193,7 @@ const NPS_CONTENT = {
       category: "Early Childhood & Care",
       title: "Day Care Facility",
       image: "assets/images/day-care.webp",
-      desc: "A safe, joyful, and nurturing space equipped with colorful interactive learning zones, story corners, and certified caregiver supervision. Available for Non-admission students from outside on flexible Hourly and Weekly basis."
+      desc: "A safe, joyful, and nurturing space equipped with colorful interactive learning zones, story corners, and certified caregiver supervision to support healthy early childhood growth and play."
     },
     {
       id: "classrooms",
