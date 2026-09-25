@@ -72,7 +72,7 @@
 
   /* Layout */
   --max-width: 1320px;
-  --header-height: 86px;
+  --header-height: 90px;
   --topbar-height: 40px;
 }
 
@@ -562,7 +562,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-brand img.school-logo {
-  height: clamp(36px, 2.7vw, 50px);
+  height: clamp(58px, 4.8vw, 72px);
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -570,7 +570,44 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-brand:hover img.school-logo {
-  transform: scale(1.02);
+  transform: scale(1.03);
+}
+
+.map-container-wrapper {
+  position: relative;
+  margin-top: 3.5rem;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--slate-200);
+  background: var(--slate-100);
+}
+
+.map-open-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #ffffff;
+  color: #1a73e8;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.map-open-badge:hover {
+  background: #f0f6ff;
+  color: #1557b0;
+  box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+  transform: translateY(-2px);
 }
 
 .nav-menu {
@@ -4782,7 +4819,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .logo-brand img.school-logo {
-    height: clamp(34px, 2.4vw, 42px);
+    height: clamp(50px, 3.8vw, 62px);
   }
 
   .nav-menu {
@@ -4827,7 +4864,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.32rem clamp(0.12rem, 0.18vw, 0.25rem);
   }
   .logo-brand img.school-logo {
-    height: 34px;
+    height: 48px;
   }
 }
 
@@ -5101,11 +5138,11 @@ h1, h2, h3, h4, h5, h6 {
     flex-wrap: nowrap;
   }
   .logo-brand {
-    max-width: 55%;
+    max-width: 58%;
     min-width: 0;
   }
   .logo-brand img.school-logo {
-    height: 40px;
+    height: 56px;
     max-width: 100%;
   }
   .nav-actions {
@@ -5131,10 +5168,10 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.78rem;
   }
   .logo-brand {
-    max-width: 52%;
+    max-width: 56%;
   }
   .logo-brand img.school-logo {
-    height: 36px;
+    height: 50px;
   }
   .top-bar-actions {
     flex-wrap: wrap;
@@ -5179,10 +5216,10 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 0.85rem;
   }
   .logo-brand {
-    max-width: 48%;
+    max-width: 52%;
   }
   .logo-brand img.school-logo {
-    height: 32px;
+    height: 44px;
   }
   .mobile-menu-toggle {
     width: 38px;
