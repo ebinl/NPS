@@ -6,7 +6,7 @@
 
 const NPS_CONTENT = {
   school: {
-    name: "National Public School, Hope Farm",
+    name: "National Public School, Hopefarm",
     shortName: "NPS Hopefarm",
     tagline: "Where Education Meets Excellence",
     affiliation: "Following the National Education Policy (NEP) Framework",
@@ -17,7 +17,7 @@ const NPS_CONTENT = {
     address: "No. 141, Channasandra , Near Isha Misty Green Apartment East gate Near Prestige Mayberry, Bengaluru – 560067",
     phones: ["+91 99000 25002", "+91 99000 31002"],
     email: "info@npshopefarm.com",
-    copyright: "© Copyright 2026 National Public School, Hope Farm. All Rights Reserved."
+    copyright: "© Copyright 2026 National Public School, Hopefarm. All Rights Reserved."
   },
 
   about: {
@@ -28,8 +28,8 @@ const NPS_CONTENT = {
         "Welcome to National Public School, Hopefarm, a part of the prestigious NPS Group’s half-century legacy of academic excellence, now illuminating the eastern quadrant of Bangalore. Located in the vibrant Hopefarm area, our new campus is a dynamic space where tradition meets innovation.",
         "We are committed to providing a stimulating, child-centric learning environment designed to nurture inquisitive minds, ethical citizens, and future leaders who are ready to excel on the global stage.",
         "At NPS Hopefarm, we don’t just educate; we inspire a lifelong passion for learning and self-discovery.",
-        "National Public School, Hope Farm has a sprawling 5-acre campus with state-of-the-art infrastructure comprising facilities like fully equipped labs, Audio Visual Room, Art Centre, Music Room, Conference Room, Multipurpose Hall, Health Centre, Counselling Centre, and athletic and sports facilities including an indoor badminton court, basketball court, cricket and football field, and various indoor sports amenities.",
-        "National Public School, Hope Farm is a progressive, child-centric school driven by its core values, set in a warm and nurturing environment. It emphasizes personalized attention, upholds academic excellence, and fosters the holistic development of every child."
+        "National Public School, Hopefarm has a sprawling 5-acre campus with state-of-the-art infrastructure comprising facilities like fully equipped labs, Audio Visual Room, Art Centre, Music Room, Conference Room, Multipurpose Hall, Health Centre, Counselling Centre, and athletic and sports facilities including an indoor badminton court, basketball court, cricket and football field, and various indoor sports amenities.",
+        "National Public School, Hopefarm is a progressive, child-centric school driven by its core values, set in a warm and nurturing environment. It emphasizes personalized attention, upholds academic excellence, and fosters the holistic development of every child."
       ]
     },
     visionMission: {
@@ -61,12 +61,12 @@ const NPS_CONTENT = {
     chairmanRanganath: {
       name: "Dr. HD Ranganath",
       title: "Chairman",
-      school: "National Public School, Hope Farm",
+      school: "National Public School, Hopefarm",
       photo: "assets/images/chairman-dr-hd-ranganath.jpg",
-      lead: "At NPS Hope Farm, our vision is to create an educational ecosystem where tradition meets tomorrow — fostering intellectual curiosity, compassionate leadership, and the courage to chart new horizons.",
+      lead: "At NPS Hopefarm, our vision is to create an educational ecosystem where tradition meets tomorrow — fostering intellectual curiosity, compassionate leadership, and the courage to chart new horizons.",
       paragraphs: [
-        "As Chairman, it is my privilege to welcome you to National Public School, Hope Farm. Education today is not merely about academic accomplishment; it is about preparing young minds to thrive in an interconnected, ever-changing world with empathy, integrity, and self-belief.",
-        "Carrying forward the storied NPS legacy of over six decades of academic distinction, we have designed NPS Hope Farm as a future-forward sanctuary of learning. Here, state-of-the-art infrastructure and progressive NEP-aligned enquiry go hand in hand with timeless values, social responsibility, and emotional well-being.",
+        "As Chairman, it is my privilege to welcome you to National Public School, Hopefarm. Education today is not merely about academic accomplishment; it is about preparing young minds to thrive in an interconnected, ever-changing world with empathy, integrity, and self-belief.",
+        "Carrying forward the storied NPS legacy of over six decades of academic distinction, we have designed NPS Hopefarm as a future-forward sanctuary of learning. Here, state-of-the-art infrastructure and progressive NEP-aligned enquiry go hand in hand with timeless values, social responsibility, and emotional well-being.",
         "Every child is a powerhouse of infinite potential. Our dedicated faculty members guide each learner to think independently, explore fearlessly, embrace diverse viewpoints, and turn their creative ideas into positive real-world contributions.",
         "We invite parents to walk alongside us as vital partners on this transformative journey — celebrating every developmental milestone and nurturing confident, purposeful citizens who will make a meaningful difference to society."
       ],
@@ -75,11 +75,11 @@ const NPS_CONTENT = {
     secretaryRanganath: {
       name: "Dr. Suma Ranganath",
       title: "Secretary",
-      school: "National Public School, Hope Farm",
+      school: "National Public School, Hopefarm",
       photo: "assets/images/secretary-dr-suma-ranganath.jpg",
-      lead: "At NPS Hope Farm, our commitment is to provide an empowering, safe, and progressive environment where every student discovers their inner genius and flourishes with confidence.",
+      lead: "At NPS Hopefarm, our commitment is to provide an empowering, safe, and progressive environment where every student discovers their inner genius and flourishes with confidence.",
       paragraphs: [
-        "It is a profound joy to welcome you to National Public School, Hope Farm. As Secretary, my focus is to ensure that our school is not only an institution of academic distinction, but a second home where children feel valued, inspired, and deeply supported in every facet of their educational journey.",
+        "It is a profound joy to welcome you to National Public School, Hopefarm. As Secretary, my focus is to ensure that our school is not only an institution of academic distinction, but a second home where children feel valued, inspired, and deeply supported in every facet of their educational journey.",
         "We have thoughtfully designed our campus infrastructure—from smart experiential classrooms and STEM composite labs to vibrant sports arenas and serene creative arts studios—to spark imagination and foster active discovery. We invest tirelessly in creating world-class facilities and empowering our educators with cutting-edge pedagogical tools.",
         "True education thrives when administrative excellence works hand-in-hand with compassionate mentorship. We maintain open, transparent communication with parents, recognizing that a unified school-family partnership is the cornerstone of every child's success and happiness.",
         "We welcome our young learners to a warm, vibrant community where every day brings exciting new discoveries, enduring values, and joyful milestones."
@@ -88,10 +88,10 @@ const NPS_CONTENT = {
     },
     principalsMessage: {
       name: "Ms. Anju Sam",
-      role: "Principal, National Public School, Hope Farm",
+      role: "Principal, National Public School, Hopefarm",
       title: "Rooted Locally, Thinking Globally, and Growing Joyfully",
       photo: "assets/images/principal-ms-anju-sam.jpg",
-      lead: "At NPS Hope Farm, we believe in taking every child from the local to the global — deeply rooted in our culture, values and heritage, yet confident and ready to embrace the world.",
+      lead: "At NPS Hopefarm, we believe in taking every child from the local to the global — deeply rooted in our culture, values and heritage, yet confident and ready to embrace the world.",
       paragraphs: [
         "Our approach to education goes beyond academics. We nurture the Head, Heart and Hand — developing knowledge, emotional well-being and the skills to apply learning in real life.",
         "In the early years, we draw from Montessori, Kindergarten and Multiple Intelligences approaches, recognising that every child is unique and every child learns differently.",
@@ -100,15 +100,15 @@ const NPS_CONTENT = {
         "And most importantly, we believe education is not about what to think, but how to think — how to question, connect, create, reflect and find solutions.",
         "Our goal is to nurture children with confidence, self-esteem, empathy and resilience, who are proud of where they come from and ready to make a meaningful difference to the world."
       ],
-      closing: "That is the NPS Hope Farm journey — rooted locally, thinking globally, and growing joyfully.",
-      message: "At NPS Hope Farm, we believe in taking every child from the local to the global — deeply rooted in our culture, values and heritage, yet confident and ready to embrace the world. Our approach to education goes beyond academics. We nurture the Head, Heart and Hand — developing knowledge, emotional well-being and the skills to apply learning in real life. In the early years, we draw from Montessori, Kindergarten and Multiple Intelligences approaches, recognising that every child is unique and every child learns differently. As children progress from Grades 1 to 6, we consciously build their Listening, Speaking, Reading and Writing skills, while developing critical thinking, creativity, communication, collaboration and learner agency. We give equal importance to a child’s Emotional Quotient and Happy Quotient, because a child who feels secure, valued and happy is better prepared to learn, explore and grow. And most importantly, we believe education is not about what to think, but how to think — how to question, connect, create, reflect and find solutions. Our goal is to nurture children with confidence, self-esteem, empathy and resilience, who are proud of where they come from and ready to make a meaningful difference to the world. That is the NPS Hope Farm journey — rooted locally, thinking globally, and growing joyfully."
+      closing: "That is the NPS Hopefarm journey — rooted locally, thinking globally, and growing joyfully.",
+      message: "At NPS Hopefarm, we believe in taking every child from the local to the global — deeply rooted in our culture, values and heritage, yet confident and ready to embrace the world. Our approach to education goes beyond academics. We nurture the Head, Heart and Hand — developing knowledge, emotional well-being and the skills to apply learning in real life. In the early years, we draw from Montessori, Kindergarten and Multiple Intelligences approaches, recognising that every child is unique and every child learns differently. As children progress from Grades 1 to 6, we consciously build their Listening, Speaking, Reading and Writing skills, while developing critical thinking, creativity, communication, collaboration and learner agency. We give equal importance to a child’s Emotional Quotient and Happy Quotient, because a child who feels secure, valued and happy is better prepared to learn, explore and grow. And most importantly, we believe education is not about what to think, but how to think — how to question, connect, create, reflect and find solutions. Our goal is to nurture children with confidence, self-esteem, empathy and resilience, who are proud of where they come from and ready to make a meaningful difference to the world. That is the NPS Hopefarm journey — rooted locally, thinking globally, and growing joyfully."
     }
   },
 
   programmes: {
     scholastic: {
       intro: "Our scholastic curriculum is rigorously designed to be comprehensive, stimulating, and aligned with the NEP framework, ensuring depth of knowledge and academic rigour. We move beyond rote learning to an enquiry-based, skills-focused approach that encourages students to question, research, analyze, and create knowledge.",
-      overviewP: "National Public School, Hope Farm has a unique approach to academics which amalgamates the NEP curriculum with a modern, holistic and integrated system of education. We nurture an enquiring and entrepreneurial mindset by honing our students’ creativity, critical thinking and problem-solving skills with progressive teaching methods. Our optimal class size of 30 students provides each student with the personal attention they need to develop their multiple talents and become the leaders of tomorrow.",
+      overviewP: "National Public School, Hopefarm has a unique approach to academics which amalgamates the NEP curriculum with a modern, holistic and integrated system of education. We nurture an enquiring and entrepreneurial mindset by honing our students’ creativity, critical thinking and problem-solving skills with progressive teaching methods. Our optimal class size of 30 students provides each student with the personal attention they need to develop their multiple talents and become the leaders of tomorrow.",
       stages: [
         {
           id: "foundation",
@@ -497,7 +497,7 @@ faqs: [
       {
         title: "Pride in NPS Tradition",
         image: "assets/images/campus-student-handbook.jpg",
-        date: "NPS Hope Farm",
+        date: "NPS Hopefarm",
         tag: "Student Values"
       }
     ]
