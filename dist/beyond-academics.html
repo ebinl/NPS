@@ -38,23 +38,70 @@
     content="Holistic student development at NPS Hopefarm near Hopefarm Junction, Channasandra, Isha Misty Green, and Prestige Mayberry.">
   <meta name="twitter:image" content="https://npshopefarm.com/assets/images/campus_hero.webp">
 
-  <!-- Schema.org JSON-LD Breadcrumbs -->
+  <!-- Schema.org JSON-LD Structured Data for Google Sitelinks & Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@graph": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://npshopefarm.com/"
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://npshopefarm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Beyond Academics",
+            "item": "https://npshopefarm.com/beyond-academics.html"
+          }
+        ]
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Beyond Academics",
-        "item": "https://npshopefarm.com/beyond-academics"
+        "@type": "ItemList",
+        "@id": "https://npshopefarm.com/beyond-academics.html#sitenavigation",
+        "name": "NPS Hopefarm Holistic Learning Menu",
+        "description": "Google Sitelinks navigation menu for NPS Hopefarm Beyond Academics & Co-Curricular",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Performing & Fine Arts",
+            "description": "Classical & contemporary dance, vocal & instrumental music, visual arts, and studio creativity.",
+            "url": "https://npshopefarm.com/beyond-academics.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Sports & Athletic Excellence",
+            "description": "Comprehensive physical education, basketball, badminton, table tennis, and athletics.",
+            "url": "https://npshopefarm.com/beyond-academics.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "Robotics & Innovation Clubs",
+            "description": "STEM discovery, coding, robotics competitions, and student leadership clubs.",
+            "url": "https://npshopefarm.com/beyond-academics.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 4,
+            "name": "Admission Process",
+            "description": "Admissions open for 2027-2028 from Nursery to Grade VIII. Apply online.",
+            "url": "https://npshopefarm.com/admission-process.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 5,
+            "name": "Contact Admissions",
+            "description": "Contact our campus admissions desk, location details, and phone numbers.",
+            "url": "https://npshopefarm.com/contact-us.html"
+          }
+        ]
       }
     ]
   }

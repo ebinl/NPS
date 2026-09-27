@@ -54,23 +54,84 @@
 
   <!-- Stylesheets -->
 
-  <!-- Schema.org JSON-LD Structured Data -->
+  <!-- Schema.org JSON-LD Structured Data for Google Sitelinks & Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@graph": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://npshopefarm.com/"
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://npshopefarm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "FAQs",
+            "item": "https://npshopefarm.com/faqs.html"
+          }
+        ]
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "FAQs",
-        "item": "https://npshopefarm.com/faqs.html"
+        "@type": "ItemList",
+        "@id": "https://npshopefarm.com/faqs.html#sitenavigation",
+        "name": "NPS Hopefarm Navigation Menu",
+        "description": "Google Sitelinks navigation menu for National Public School Hopefarm FAQs",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Admissions FAQs",
+            "description": "Answers to queries on age eligibility, admission procedure, registration, and deadlines.",
+            "url": "https://npshopefarm.com/faqs.html#faq-admissions"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Curriculum & Academics FAQs",
+            "description": "Details about CBSE syllabus, teaching methodologies, assessments, and language choices.",
+            "url": "https://npshopefarm.com/faqs.html#faq-curriculum"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "School Timings & Transport FAQs",
+            "description": "Information on daily class timings, GPS-enabled bus routes, and campus safety.",
+            "url": "https://npshopefarm.com/faqs.html#faq-timings"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 4,
+            "name": "Campus Facilities & Labs FAQs",
+            "description": "Learn about smart classrooms, composite science laboratory, and sports arena.",
+            "url": "https://npshopefarm.com/faqs.html#faq-facilities"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 5,
+            "name": "Admission Process",
+            "description": "Start your child's admission journey at NPS Hopefarm.",
+            "url": "https://npshopefarm.com/admission-process.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 6,
+            "name": "Academic Programmes",
+            "description": "Pre-KG to Grade VIII academic curriculum details.",
+            "url": "https://npshopefarm.com/programmes.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 7,
+            "name": "Contact School Desk",
+            "description": "Reach our administrative office for any additional questions or support.",
+            "url": "https://npshopefarm.com/contact-us.html"
+          }
+        ]
       }
     ]
   }

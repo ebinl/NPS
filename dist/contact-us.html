@@ -54,23 +54,84 @@
 
   <!-- Stylesheets -->
 
-  <!-- Schema.org JSON-LD Structured Data -->
+  <!-- Schema.org JSON-LD Structured Data for Google Sitelinks & Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@graph": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://npshopefarm.com/"
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://npshopefarm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact Us",
+            "item": "https://npshopefarm.com/contact-us.html"
+          }
+        ]
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Contact Us",
-        "item": "https://npshopefarm.com/contact-us.html"
+        "@type": "ItemList",
+        "@id": "https://npshopefarm.com/contact-us.html#sitenavigation",
+        "name": "NPS Hopefarm Navigation Menu",
+        "description": "Google Sitelinks navigation menu for National Public School Hopefarm Contact Page",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Campus Location & Map Directions",
+            "description": "Interactive Google Map location in Whitefield near Hopefarm Junction, Isha Misty Green & Prestige Mayberry.",
+            "url": "https://npshopefarm.com/contact-us.html#campus-map"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Admissions & Enquiry Helplines",
+            "description": "Call or WhatsApp our admissions counselors at +91 99000 25002 / +91 99000 31002.",
+            "url": "https://npshopefarm.com/contact-us.html#contact-details"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "Online Message & Enquiry Form",
+            "description": "Send an online enquiry to schedule a campus tour or receive fee structure details.",
+            "url": "https://npshopefarm.com/contact-us.html#contact-form"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 4,
+            "name": "School Office & Visiting Hours",
+            "description": "Office visiting hours: Monday to Saturday 8:30 AM to 4:00 PM.",
+            "url": "https://npshopefarm.com/contact-us.html#office-hours"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 5,
+            "name": "Academic Programmes",
+            "description": "Comprehensive CBSE curriculum from Pre-KG to Grade VIII.",
+            "url": "https://npshopefarm.com/programmes.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 6,
+            "name": "Admission Process",
+            "description": "Explore step-by-step admission procedure and age eligibility.",
+            "url": "https://npshopefarm.com/admission-process.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 7,
+            "name": "Campus Infrastructure",
+            "description": "State-of-the-art 5-acre campus, science lab, sports arena, and smart classrooms.",
+            "url": "https://npshopefarm.com/infrastructure.html"
+          }
+        ]
       }
     ]
   }
