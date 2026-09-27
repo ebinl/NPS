@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://npshopefarm.com/sitemap.xml
+Sitemap: https://npshopefarm.in/sitemap.xml
