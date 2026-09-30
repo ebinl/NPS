@@ -4777,16 +4777,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-watermark {
-  font-size: 0.825rem;
-  color: rgba(255, 255, 255, 0.45);
-  letter-spacing: 0.02em;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: 0.025em;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.15rem 0.6rem;
+  gap: 0.3rem;
+  padding: 0.1rem 0.5rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   transition: all 0.25s ease;
   user-select: none;
 }
@@ -5381,8 +5381,8 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .page-scroll-controls {
   position: fixed;
-  right: 42px;
-  bottom: 122px;
+  right: 32px;
+  bottom: 140px;
   z-index: 95;
   display: flex;
   flex-direction: column;
@@ -5390,13 +5390,13 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   background: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(240, 248, 255, 0.28) 50%,
-    rgba(220, 242, 255, 0.38) 100%
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(240, 248, 255, 0.32) 50%,
+    rgba(220, 242, 255, 0.42) 100%
   );
   backdrop-filter: blur(24px) saturate(190%) contrast(105%);
   -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(105%);
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
   border-radius: 28px;
   box-shadow:
     inset 0 2px 4px 0 rgba(255, 255, 255, 0.95),
@@ -5410,9 +5410,9 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #ffffff;
   background: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(245, 250, 255, 0.38) 50%,
-    rgba(225, 245, 255, 0.48) 100%
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(245, 250, 255, 0.42) 50%,
+    rgba(225, 245, 255, 0.52) 100%
   );
   box-shadow:
     inset 0 2.5px 5px 0 #ffffff,
@@ -5474,10 +5474,10 @@ h1, h2, h3, h4, h5, h6 {
   cursor: not-allowed;
 }
 
-@media (max-width: 580px) {
+@media (max-width: 768px) {
   .page-scroll-controls {
-    right: 18px;
-    bottom: 82px;
+    right: 20px;
+    bottom: 104px;
     border-radius: 22px;
   }
 
@@ -5489,6 +5489,42 @@ h1, h2, h3, h4, h5, h6 {
   .page-scroll-btn svg {
     width: 17px;
     height: 17px;
+  }
+}
+
+@media (max-width: 580px) {
+  .page-scroll-controls {
+    right: 16px;
+    bottom: 92px;
+    border-radius: 20px;
+  }
+
+  .page-scroll-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .page-scroll-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .page-scroll-controls {
+    right: 12px;
+    bottom: 82px;
+    border-radius: 18px;
+  }
+
+  .page-scroll-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .page-scroll-btn svg {
+    width: 14px;
+    height: 14px;
   }
 }
 
@@ -5859,6 +5895,132 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   box-shadow: 0 2px 10px rgba(11, 26, 54, 0.08);
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+}
+
+/* WhatsApp Launcher & Chat Popup Responsive Scaling */
+@media (max-width: 768px) {
+  .whatsapp-floating-launcher {
+    bottom: 22px;
+    right: 20px;
+  }
+  .whatsapp-quick-btn {
+    width: 60px;
+    height: 60px;
+  }
+  .whatsapp-quick-btn svg {
+    width: 32px;
+    height: 32px;
+  }
+  .whatsapp-popup {
+    width: 320px;
+  }
+}
+
+@media (max-width: 580px) {
+  .whatsapp-floating-launcher {
+    bottom: 18px;
+    right: 16px;
+  }
+  .whatsapp-quick-btn {
+    width: 52px;
+    height: 52px;
+  }
+  .whatsapp-quick-btn svg {
+    width: 26px;
+    height: 26px;
+  }
+  .whatsapp-quick-btn .whatsapp-badge-pill {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+    top: -5px;
+    right: -5px;
+    gap: 3px;
+  }
+  .whatsapp-popup {
+    width: calc(100vw - 32px);
+    max-width: 295px;
+    bottom: calc(100% + 10px);
+    right: 0;
+    border-radius: 16px;
+  }
+  .whatsapp-popup-header {
+    padding: 0.75rem 0.85rem;
+  }
+  .whatsapp-popup-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  .whatsapp-popup-avatar svg {
+    width: 18px;
+    height: 18px;
+  }
+  .whatsapp-popup-title {
+    font-size: 0.88rem;
+  }
+  .whatsapp-popup-status {
+    font-size: 0.68rem;
+  }
+  .whatsapp-popup-close {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+  }
+  .whatsapp-popup-body {
+    padding: 0.7rem 0.75rem 0.8rem;
+    gap: 0.5rem;
+  }
+  .whatsapp-popup-prompt {
+    font-size: 0.68rem;
+    padding: 2px 6px;
+  }
+  .whatsapp-card-option {
+    padding: 0.55rem 0.7rem;
+    border-radius: 12px;
+  }
+  .whatsapp-card-phone {
+    font-size: 0.9rem;
+  }
+  .whatsapp-card-sub {
+    font-size: 0.7rem;
+  }
+  .whatsapp-card-badge {
+    font-size: 0.6rem;
+    padding: 1.5px 6px;
+    margin-bottom: 0.2rem;
+  }
+  .whatsapp-card-btn-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .whatsapp-card-btn-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+  .whatsapp-office-hours {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .whatsapp-floating-launcher {
+    bottom: 14px;
+    right: 12px;
+  }
+  .whatsapp-quick-btn {
+    width: 46px;
+    height: 46px;
+  }
+  .whatsapp-quick-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+  .whatsapp-popup {
+    width: calc(100vw - 24px);
+    max-width: 280px;
+    right: -4px;
+  }
 }
 
 /* ==========================================================================
@@ -6443,22 +6605,24 @@ h1, h2, h3, h4, h5, h6 {
 /* Card Photo Container */
 .leader-card-photo-wrap {
   position: relative;
-  height: 290px;
+  width: 100%;
+  aspect-ratio: 953 / 1024;
   overflow: hidden;
   background: #0b1a36;
+  display: block;
 }
 
 .leader-card-photo-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 12%;
+  object-position: center;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.3s ease;
 }
 
 .leadership-compact-card:hover .leader-card-photo-wrap img {
-  transform: scale(1.04);
+  transform: none;
 }
 
 .leader-role-pill {
@@ -6885,9 +7049,6 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 640px) {
   .leadership-cards-grid {
     grid-template-columns: 1fr;
-  }
-  .leader-card-photo-wrap {
-    height: 260px;
   }
   .leadership-modal-header {
     flex-direction: column;

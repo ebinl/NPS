@@ -8,6 +8,10 @@
       "destination": "/"
     },
     {
+      "source": "/about/principals-message",
+      "destination": "/about.html"
+    },
+    {
       "source": "/about",
       "destination": "/about.html"
     },
@@ -25,11 +29,11 @@
     },
     {
       "source": "/admissions",
-      "destination": "/admission-process.html"
+      "destination": "/admissions.html"
     },
     {
       "source": "/admission-process",
-      "destination": "/admission-process.html"
+      "destination": "/admissions.html"
     },
     {
       "source": "/careers",

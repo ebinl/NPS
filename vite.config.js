@@ -11,6 +11,7 @@ export default defineConfig({
         infrastructure: resolve(__dirname, 'infrastructure.html'),
         beyondAcademics: resolve(__dirname, 'beyond-academics.html'),
         admissionProcess: resolve(__dirname, 'admission-process.html'),
+        admissions: resolve(__dirname, 'admissions.html'),
         careers: resolve(__dirname, 'careers.html'),
         faqs: resolve(__dirname, 'faqs.html'),
         contactUs: resolve(__dirname, 'contact-us.html'),

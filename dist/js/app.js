@@ -288,8 +288,8 @@ function initRouter() {
         instantJumpToElement(secretarySec);
         window.openSchoolLeaderModal?.('secretary');
       }
-    } else if (hash.includes('principals-message')) {
-      const principalSec = document.getElementById('about-principals-message') || document.getElementById('school-leadership-section');
+    } else if (hash.includes('principals-message') || hash.includes('school-leadership-section') || window.location.pathname.includes('principals-message')) {
+      const principalSec = document.getElementById('principals-message') || document.getElementById('about-principals-message') || document.getElementById('school-leadership-section');
       if (principalSec) {
         instantJumpToElement(principalSec);
         window.openSchoolLeaderModal?.('principal');
@@ -324,6 +324,7 @@ function initRouter() {
     const hash = href.slice(hashIndex);
     const isInstant = link.classList.contains('instant-nav-link') ||
                       hash === '#gallery' || hash === '#events' ||
+                      hash === '#principals-message' ||
                       hash === '#school-leadership-section' ||
                       hash === '#about-the-leadership';
 
