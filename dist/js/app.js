@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeMode();
   initScrollReveals();
   initNavigation();
   initRouter();
@@ -12,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initInfrastructureFilters();
   initScheduleTabs();
+  init3DTiltEffects();
+  initEmailLinks();
   initForms();
   initHappeningsSlider();
   initWhatsAppSelector();
@@ -37,8 +40,9 @@ function initNavigation() {
 
     document.querySelectorAll('.nav-menu .nav-link, #mobile-nav-drawer .mobile-nav-link, #mobile-nav-drawer .mobile-sublink').forEach(link => {
       const href = link.getAttribute('href') || '';
+      const hasHash = href.includes('#');
       const hrefFile = href.split('#')[0].split('/').pop().replace('.html', '');
-      if (hrefFile && (hrefFile === cleanCurrent || (cleanCurrent === '' && hrefFile === 'index'))) {
+      if (!hasHash && hrefFile && (hrefFile === cleanCurrent || (cleanCurrent === '' && hrefFile === 'index'))) {
         link.classList.add('active');
         const parentAccordion = link.closest('.mobile-nav-accordion');
         if (parentAccordion) {
@@ -271,28 +275,10 @@ function initRouter() {
         tab.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
         tab.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    } else if (hash.includes('the-leadership')) {
-      const leadershipSec = document.getElementById('leadership-section') || document.getElementById('about-the-leadership');
+    } else if (hash.includes('the-leadership') || hash.includes('chairman-message') || hash.includes('secretary-message') || hash.includes('principals-message') || hash.includes('school-leadership-section') || window.location.pathname.includes('principals-message')) {
+      const leadershipSec = document.getElementById('about-the-leadership') || document.getElementById('leadership-section') || document.getElementById('school-leadership-section');
       if (leadershipSec) {
         instantJumpToElement(leadershipSec);
-      }
-    } else if (hash.includes('chairman-message')) {
-      const chairmanSec = document.getElementById('about-chairman-message') || document.getElementById('school-leadership-section');
-      if (chairmanSec) {
-        instantJumpToElement(chairmanSec);
-        window.openSchoolLeaderModal?.('chairman');
-      }
-    } else if (hash.includes('secretary-message')) {
-      const secretarySec = document.getElementById('about-secretary-message') || document.getElementById('school-leadership-section');
-      if (secretarySec) {
-        instantJumpToElement(secretarySec);
-        window.openSchoolLeaderModal?.('secretary');
-      }
-    } else if (hash.includes('principals-message') || hash.includes('school-leadership-section') || window.location.pathname.includes('principals-message')) {
-      const principalSec = document.getElementById('principals-message') || document.getElementById('about-principals-message') || document.getElementById('school-leadership-section');
-      if (principalSec) {
-        instantJumpToElement(principalSec);
-        window.openSchoolLeaderModal?.('principal');
       }
     } else if (hash.includes('gallery') || hash.includes('events')) {
       const gallerySec = document.getElementById('gallery') || document.getElementById('events');
@@ -492,7 +478,7 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   INFRASTRUCTURE FILTER TABS
+   INFRASTRUCTURE FILTER TABS (ANIMATED)
    ========================================================================== */
 function initInfrastructureFilters() {
   const filterBtns = document.querySelectorAll('.infra-filter-btn');
@@ -500,16 +486,22 @@ function initInfrastructureFilters() {
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      if (btn.classList.contains('active')) return;
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filterValue = (btn.getAttribute('data-filter') || '').toLowerCase();
 
+      let visibleCount = 0;
       cards.forEach(card => {
         const category = (card.getAttribute('data-category') || '').toLowerCase();
         if (filterValue === 'all' || category.includes(filterValue) || filterValue.includes(category)) {
           card.style.display = 'flex';
-          card.classList.add('fade-in');
+          card.classList.remove('tab-pane-3d');
+          void card.offsetWidth;
+          card.classList.add('tab-pane-3d');
+          card.style.animationDelay = `${visibleCount * 45}ms`;
+          visibleCount++;
         } else {
           card.style.display = 'none';
         }
@@ -519,7 +511,7 @@ function initInfrastructureFilters() {
 }
 
 /* ==========================================================================
-   SCHEDULE TIMETABLE SWITCHER
+   SCHEDULE TIMETABLE SWITCHER (ANIMATED TABS)
    ========================================================================== */
 function initScheduleTabs() {
   const btns = document.querySelectorAll('.schedule-btn');
@@ -528,24 +520,84 @@ function initScheduleTabs() {
 
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
+      if (btn.classList.contains('active')) return;
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const target = btn.getAttribute('data-schedule');
       if (target === 'preprimary') {
-        if (listPrimary) listPrimary.style.display = 'none';
+        if (listPrimary) {
+          listPrimary.style.display = 'none';
+          listPrimary.classList.remove('tab-pane-3d');
+        }
         if (listPrePrimary) {
           listPrePrimary.style.display = 'block';
-          listPrePrimary.classList.add('fade-in');
+          listPrePrimary.classList.remove('tab-pane-3d');
+          void listPrePrimary.offsetWidth;
+          listPrePrimary.classList.add('tab-pane-3d');
         }
       } else {
-        if (listPrePrimary) listPrePrimary.style.display = 'none';
+        if (listPrePrimary) {
+          listPrePrimary.style.display = 'none';
+          listPrePrimary.classList.remove('tab-pane-3d');
+        }
         if (listPrimary) {
           listPrimary.style.display = 'block';
-          listPrimary.classList.add('fade-in');
+          listPrimary.classList.remove('tab-pane-3d');
+          void listPrimary.offsetWidth;
+          listPrimary.classList.add('tab-pane-3d');
         }
       }
     });
+  });
+}
+
+/* ==========================================================================
+   INTERACTIVE 3D CARD TILT & PARALLAX ENGINE
+   ========================================================================== */
+function init3DTiltEffects() {
+  const tiltElements = document.querySelectorAll('.tilt-3d, .leadership-compact-card, .curriculum-card, .infra-card, .why-nps-card, .stat-card, .pillars-card, .beyond-card, .feature-card, .contact-card');
+  if (!tiltElements.length) return;
+
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) return; // Retain natural scroll on mobile
+
+  tiltElements.forEach(card => {
+    let bounds;
+    let isHovered = false;
+
+    function onMouseEnter() {
+      bounds = card.getBoundingClientRect();
+      isHovered = true;
+      card.style.transition = 'transform 0.12s ease-out, box-shadow 0.25s ease';
+    }
+
+    function onMouseMove(e) {
+      if (!isHovered || !bounds) return;
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+      const xPct = Math.max(0, Math.min(100, (mouseX / bounds.width) * 100));
+      const yPct = Math.max(0, Math.min(100, (mouseY / bounds.height) * 100));
+
+      card.style.setProperty('--mouse-x', `${xPct.toFixed(1)}%`);
+      card.style.setProperty('--mouse-y', `${yPct.toFixed(1)}%`);
+
+      const maxTilt = 7;
+      const tiltX = ((mouseX / bounds.width) - 0.5) * (maxTilt * 2);
+      const tiltY = -((mouseY / bounds.height) - 0.5) * (maxTilt * 2);
+
+      card.style.transform = `perspective(1000px) rotateX(${tiltY.toFixed(2)}deg) rotateY(${tiltX.toFixed(2)}deg) translateY(-6px) scale3d(1.015, 1.015, 1.015)`;
+    }
+
+    function onMouseLeave() {
+      isHovered = false;
+      card.style.transition = 'transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s ease';
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale3d(1, 1, 1)';
+    }
+
+    card.addEventListener('mouseenter', onMouseEnter, { passive: true });
+    card.addEventListener('mousemove', onMouseMove, { passive: true });
+    card.addEventListener('mouseleave', onMouseLeave, { passive: true });
   });
 }
 
@@ -1106,3 +1158,56 @@ function initLeadershipModal() {
     }
   });
 }
+
+/* ==========================================================================
+   GMAIL REDIRECT CONTROLLER
+   ========================================================================== */
+function initEmailLinks() {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="mailto:"], a[href*="info@npshopefarm.com"]');
+    if (!link) return;
+
+    const href = link.getAttribute('href') || '';
+    if (href.startsWith('mailto:') || href.includes('info@npshopefarm.com')) {
+      e.preventDefault();
+      const email = 'info@npshopefarm.com';
+      const subject = encodeURIComponent('Admissions Enquiry - NPS Hopefarm');
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}`;
+      window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+    }
+  });
+}
+
+/* ==========================================================================
+   DND / DARK MODE CONTROLLER
+   ========================================================================== */
+function initThemeMode() {
+  const savedTheme = localStorage.getItem('nps-theme') || 'light';
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.body.classList.add('dark-mode');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.body.classList.remove('dark-mode');
+    }
+    localStorage.setItem('nps-theme', theme);
+  }
+
+  // Initial apply
+  applyTheme(savedTheme);
+
+  // Wire all toggle buttons (header and mobile drawer)
+  const toggleBtns = document.querySelectorAll('.dnd-theme-toggle');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const nextTheme = current === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+    });
+  });
+}
+
+

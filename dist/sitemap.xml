@@ -4,56 +4,62 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://npshopefarm.in/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <loc>https://www.npshopefarm.com/</loc>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://npshopefarm.in/about.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://npshopefarm.in/admissions.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <loc>https://www.npshopefarm.com/admissions.html</loc>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://npshopefarm.in/programmes.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://npshopefarm.in/infrastructure.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://npshopefarm.in/beyond-academics.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://npshopefarm.in/contact-us.html</loc>
-    <lastmod>2026-09-25</lastmod>
+    <loc>https://www.npshopefarm.com/admission-process.html</loc>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://npshopefarm.in/faqs.html</loc>
-    <lastmod>2026-09-25</lastmod>
+    <loc>https://www.npshopefarm.com/contact-us.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.npshopefarm.com/about.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.npshopefarm.com/programmes.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.npshopefarm.com/infrastructure.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.npshopefarm.com/beyond-academics.html</loc>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://npshopefarm.in/careers.html</loc>
-    <lastmod>2026-09-25</lastmod>
+    <loc>https://www.npshopefarm.com/faqs.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.npshopefarm.com/careers.html</loc>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
